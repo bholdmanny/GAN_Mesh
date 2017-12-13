@@ -1,12 +1,6 @@
-'''
-# An Example of Usage:
-im = imread("E:/Hua/Test/111.jpg"); #load image
-wa = [3,0.5, 2,0.7]; #get two [linewidth, transparence] pairs
-Add2Im(im, typ=4, ra=0.25, wa=wa, gap=1.6); #add Net to image
-savefig("out.jpg"); show() #save and show the result image
-'''
-
 #!/usr/bin/python3
+import matplotlib
+matplotlib.use('Agg') # Must be before importing matplotlib.pyplot or pylab!
 from pylab import * #import matplotlib & numpy
 
 # Create Normalized Curve:
@@ -79,3 +73,11 @@ def Add2Im(im, typ=1, ra=0, wa=[], gap=1.65): # add to image
     if len(wa)<4: wa = [3,0.4, 2,0.6] # linewidth, alpha
     for i in range(2*n): DrawCell(x, gap*(i-n)+ofs, typ, ra, wa)
     imshow(im, extent=(-x/2,x/2,-y/2,y/2)); axis("off")
+
+def Test(iName, oName="out.jpg"):
+    im = imread(fName); # load image
+	typ = np.random.randint(1,5); # set Reticulate Net type
+	ro = 2*np.random.rand()-1; # set rotational angle
+    wa = LwAl(2); # get 2*[linewidth, transparence] pairs
+    Add2Im(im, typ, ro, wa, gap=1.6); # add Net to image
+    savefig(oName); # save the output image
