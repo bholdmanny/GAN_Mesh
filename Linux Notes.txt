@@ -1,0 +1,66 @@
+Linux Notes:
+
+man bash
+cd
+ll /ect/profile.d
+ls -ail
+./..
+touch
+cp -R
+cp -l/-s
+rm -rf
+mv --help
+mkdir
+ls|wc -l
+cat /etc/profile
+more
+less $HOME/.bashrc
+tail -f
+
+ps -efH
+ps al
+top
+kill
+mount/umount
+df -h
+du -ch
+sort -n
+sort -t ':' -k 3 -n /etc/passwd
+grep [my] tt.txt
+gzip/gzcat/gunzip
+zip/zipsplit/unzip/zip -h2
+	zip tt.zip -r ./
+	zip -s 100m tt.zip --out tts.zip
+	cat tts.z* > tt_bak.zip
+	unzip tt_bak.zip
+tar -zcvf tt.tgz ./
+	split -d -b 100m tt.tgz
+	cat x* > tt_bak.tgz
+	tar -zxvf tt_bak.tgz
+
+printenv
+bash/exit
+echo $PATH
+PATH=$PATH:.
+export PATH
+tt=(1 2 3 4 5)
+echo ${tt[*]}
+unset tt
+alias -p
+	alias ll='ls -l --color=auto'
+	vi $HOME/.bashrc	:wq/:x/:q!/i/ESC/[:s/old/new/g]
+			/=search/v=visual/y=yank/p=paste/
+			5x=del_char/2dd=del_line/dw=del_word/
+	source .bashrc/. .bashrc
+
+useradd -g root -d /home/hua.fu -m hua.fu
+	passwd hua.fu
+	su hua.fu
+sudo userdel -rf
+usermod -L/-U
+chmod 755 tt.run/chmod u+x tt.run
+chown
+
+sudo -i
+sz/rz -be
+locate/find/whereis
