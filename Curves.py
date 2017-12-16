@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import matplotlib
+import matplotlib, os
 matplotlib.use('Agg') # Must be before importing matplotlib.pyplot or pylab!
 from pylab import * #import matplotlib & numpy
 
@@ -103,3 +103,20 @@ def Save2Im(im, tp=None, ro=None, wa=None, gap=1.6, out=None):
     dpi = 72; y,x,c = im.shape; c = (x/dpi, y/dpi);
     figure(figsize=c, dpi=dpi); Add2Im(im, tp, ro, wa, gap);
     if out != None: savefig(out, dpi=dpi); close("all");
+
+def Batch_Save2Im(org, tps=range(5,9), mod=None):
+    if org[-1] != "/": org += "/"; # original image path
+    dst = org.split("/"); dst[-2] += "2"; dst = "/".join(dst)
+    if not os.path.exists(dst): os.mkdir(dst); # dst dir
+    for i in os.listdir(org): #[:2]: # loop subdir in org dir
+        if not os.path.exists(dst+i): os.mkdir(dst+i); # dst subdir
+        for j in os.listdir(org+i): # loop images in org subdir
+            if mod==None: tp_rg = tps; # loop all net types
+            else: tp_rg = np.random.randint(tps.start, tps.stop, mod);
+            im = org+i+"/"+j; out = dst+i+"/"+j[:-4]+"_"; # image names
+            for k in set(tp_rg): # loop for net types
+                if not os.path.exists(out+str(k)+j[-4:]):
+                    Save2Im(im=im, tp=k, out=out+str(k)+j[-4:]);
+
+path = "/home/hua.fu/ms_celeb_1m/";
+Batch_Save2Im(path);
