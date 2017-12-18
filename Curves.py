@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import matplotlib, os
+import matplotlib, os, cv2
 matplotlib.use('Agg') # Must be before importing matplotlib.pyplot or pylab!
 from pylab import * #import matplotlib & numpy
 
@@ -103,32 +103,35 @@ def Add2Im(im, tp=None, ro=None, wa=None, gap=1.65, fun=DrawCell): # add to imag
     return net, wa
 
 # Save Image with Reticulate Net:
-def Save2Im(im, out, tp=None, ro=None, wa=None, gap=1.6, mk=None):
+def Save2Im(im, out, tp=None, ro=None, wa=None, gap=1.6, bg=None):
     if type(im)==str: im = imread(im) # load image
     y,x,c = im.shape; dpi = 72; c = (x/dpi, y/dpi);
     figure(figsize=c, dpi=dpi); Add2Im(im, tp, ro, wa, gap);
     out = str(out); savefig(out, dpi=dpi);
-    if type(mk)==type(im): # output mask
-        imshow(mk, extent=(-x/2,x/2,-y/2,y/2));
-        savefig(out[:-4]+"m"+out[-4:], dpi=dpi);
+    if type(bg)==type(im): # output mask
+        imshow(bg, extent=(-x/2,x/2,-y/2,y/2));
+        mk = out[:-4]+"_m.png"; savefig(mk); im = cv2.imread(mk,0);
+        ret,im = cv2.threshold(im, 250, 255, cv2.THRESH_BINARY_INV);
+        cv2.imwrite(mk, im, [int(cv2.IMWRITE_PXM_BINARY),1]);
     close("all");
 
 # Batch to Save Images with Reticulate Net:
-def Batch_Save2Im(org, tps=range(5,9), mod=None, mk=None):
-    if mk != None: mk = imread(str(mk)) # load mask image
+def Batch_Save2Im(org, tps=range(5,9), num=None, bg=None):
+    if bg != None: bg = imread(str(bg)) # load mask image
     if org[-1] != "/": org += "/"; # original image path
     dst = org.split("/"); dst[-2] += "2"; dst = "/".join(dst)
     if not os.path.exists(dst): os.mkdir(dst); # dst dir
     for i in os.listdir(org)[:1]: # loop subdir in org dir
         if not os.path.exists(dst+i): os.mkdir(dst+i); # dst subdir
         for j in os.listdir(org+i): # loop images in org subdir
-            if mod==None: tp_rg = tps; # loop all net types
-            else: tp_rg = np.random.randint(tps.start, tps.stop, mod);
+            if num==None: tp_rg = tps; # loop all net types
+            else: tp_rg = np.random.randint(tps.start, tps.stop, num);
             im = org+i+"/"+j; out = dst+i+"/"+j[:-4]+"_"; # image names
             for k in set(tp_rg): # loop for net types
                 if not os.path.exists(out+str(k)+j[-4:]):
-                    Save2Im(im, out+str(k)+j[-4:], tp=k, mk=mk);
+                    Save2Im(im, out+str(k)+j[-4:], tp=k, bg=bg);
 
 
-path = "/home/hua.fu/CASIA-WebFace/";
-Batch_Save2Im(path);
+org = "/home/hua.fu/CASIA-WebFace/";
+bg = "/home/hua.fu/blank.png";
+Batch_Save2Im(org, bg=bg);
