@@ -1,0 +1,29 @@
+Jupyter Notebook via SSH:
+
+cd
+
+jupyter notebook --generate-config
+ipython
+	from notebook.auth import passwd
+
+	passwd()
+		sha1:b271186370e3:5b9f8ef5c2f695cf2efddfe978caccea240518ff'
+	exit()
+cd ./.jupyter/
+openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mykey.key -out mycert.pem
+vim jupyter_notebook_config.py
+	# browser auto-opening
+	c.NotebookApp.certfile = u'/home/hua.fu/.jupyter/mycert.pem'
+	c.NotebookApp.keyfile = u'/home/hua.fu/.jupyter/mykey.key'
+	# Set ip to '*' to bind on all interfaces (ips) for the public server
+	c.NotebookApp.ip = '*'
+	c.NotebookApp.password = u'sha1:b271186370e3:5b9f8ef5c2f695cf2efddfe978caccea240518ff'
+	c.NotebookApp.open_browser = False
+	# It is a good idea to set a known, fixed port for server access
+	c.NotebookApp.port = 9955
+	:x
+cd
+ifconfig
+	10.250.140.126
+jupyter notebook
+	!conda install opencv
