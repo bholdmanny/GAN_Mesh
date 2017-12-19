@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 import matplotlib, os, cv2
-matplotlib.use('Agg') # Must be before importing matplotlib.pyplot or pylab!
-from pylab import * #import matplotlib & numpy
+matplotlib.use('Agg') # before import matplotlib.pyplot or pylab!
+from pylab import * # import matplotlib & numpy
 
-
+#####################################################################
 # Create Normalized Curve:
 def Curve(tp, p, t): # normalized curve
     s1 = p[2] * np.sin((p[0]*t+p[1])*np.pi);
@@ -44,7 +44,7 @@ def DrawCu(tp, p=None, xi=0, dx=20, yo=0, A=1, ra=0, af=0, wa=[]): # draw curve
     plot(t, y, color="k", lw=wa[0], alpha=wa[-1], label=an);
     return t, y, wa, p
 
-
+#####################################################################
 # Extract sps Cell Parameters:
 def Paras(tp, dx, A, f): # Extract sps Cell Parameters
     tp = abs(tp); # add noise when tp<0
@@ -91,7 +91,7 @@ def DrawCell(dx, yi=0, tp=1, ra=0, wa=[], A=42, f=12): # draw sps cell
 # Add Reticulate Net to Image:
 def Add2Im(im, tp=None, ro=None, wa=None, gap=1.65, fun=DrawCell): # add to image
     if type(im)==str: im = imread(im) # load image
-    y,x,n = im.shape; n = y//20; # get width & height
+    n = im.shape; y,x = n[0],n[1]; n = y//20; # width & height
     if tp==None: tp = np.random.randint(-8,9); print("tp =",tp)
     if ro==None: ro = 2*np.random.rand()-1; # randomly rotate
     if wa==None or len(wa)<4: wa = LwAl(2,tp,x); # [lw,alpha]
@@ -105,9 +105,9 @@ def Add2Im(im, tp=None, ro=None, wa=None, gap=1.65, fun=DrawCell): # add to imag
 # Save Image with Reticulate Net:
 def Save2Im(im, out, tp=None, ro=None, wa=None, gap=1.6, bg=None):
     if type(im)==str: im = imread(im) # load image
-    y,x,c = im.shape; dpi = 72; c = (x/dpi, y/dpi);
-    figure(figsize=c, dpi=dpi); Add2Im(im, tp, ro, wa, gap);
-    out = str(out); savefig(out, dpi=dpi);
+    dpi = 72; n = im.shape; y,x = n[0],n[1]; # width & height
+    figure(figsize=(x/dpi, y/dpi), dpi=dpi); # set figsize
+    Add2Im(im, tp, ro, wa, gap); savefig(out, dpi=dpi);
     if type(bg)==type(im): # output mask
         imshow(bg, extent=(-x/2,x/2,-y/2,y/2));
         mk = out[:-4]+"_m.png"; savefig(mk); im = cv2.imread(mk,0);
@@ -121,7 +121,7 @@ def Batch_Save2Im(org, tps=range(5,9), num=None, bg=None):
     if org[-1] != "/": org += "/"; # original image path
     dst = org.split("/"); dst[-2] += "2"; dst = "/".join(dst)
     if not os.path.exists(dst): os.mkdir(dst); # dst dir
-    for i in os.listdir(org)[:1]: # loop subdir in org dir
+    for i in os.listdir(org): #[:1]: # loop subdir in org dir
         if not os.path.exists(dst+i): os.mkdir(dst+i); # dst subdir
         for j in os.listdir(org+i): # loop images in org subdir
             if num==None: tp_rg = tps; # loop all net types
@@ -131,7 +131,7 @@ def Batch_Save2Im(org, tps=range(5,9), num=None, bg=None):
                 if not os.path.exists(out+str(k)+j[-4:]):
                     Save2Im(im, out+str(k)+j[-4:], tp=k, bg=bg);
 
-
+#####################################################################
 org = "/home/hua.fu/CASIA-WebFace/";
 bg = "/home/hua.fu/blank.png";
 Batch_Save2Im(org, bg=bg);
