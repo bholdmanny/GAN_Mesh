@@ -89,7 +89,7 @@ def DrawCell(dx, yi=0, tp=1, ra=0, wa=[], A=42, f=12): # draw sps cell
     return [t1,y1, t2,y2]
 
 # Add Reticulate Net to Image:
-def Add2Im(im, tp=None, ro=None, wa=None, gap=1.65, fun=DrawCell): # add to image
+def Add2Im(im, tp=None, ro=None, wa=None, gap=1.6, fun=DrawCell): # add to image
     if type(im)==str: im = imread(im) # load image
     n = im.shape; y,x = n[0],n[1]; n = y//20; # width & height
     if tp==None: tp = np.random.randint(-8,9); print("tp =",tp)
@@ -100,24 +100,45 @@ def Add2Im(im, tp=None, ro=None, wa=None, gap=1.65, fun=DrawCell): # add to imag
     for i in range(2*n): net += fun(x, gap*(i-n)+ofs, tp, ro, wa=wa)
     subplots_adjust(left=0, right=1, bottom=0, top=1, hspace=0, wspace=0)
     imshow(im, extent=(-x/2,x/2,-y/2,y/2)); axis("off"); xticks([]); yticks([]);
-    return net, wa
+    return net
 
 # Save Image with Reticulate Net:
-def Save2Im(im, out, tp=None, ro=None, wa=None, gap=1.6, bg=None):
+def SaveIm(im, out, tp=None, ro=None, wa=None, gap=1.6, ms=None):
+    if type(im)==str: im = imread(im) # load image
+    n = im.shape; y,x = n[0],n[1]; n = y//20; # width & height
+    if tp==None: tp = np.random.randint(-8,9); print("tp =",tp)
+    if ro==None: ro = 2*np.random.rand()-1; # randomly rotate
+    if wa==None or len(wa)<4: wa = LwAl(2,tp,x); # [lw,alpha]
+    ofs = round(1.5*np.random.rand(), 2);
+    gap = round(gap+(np.random.rand()-0.3)/10, 2); net = [];
+    dpi = 72; figure(figsize=(x/dpi, y/dpi), dpi=dpi); axis("off");
+    subplots_adjust(left=0, right=1, bottom=0, top=1, hspace=0, wspace=0)
+    for i in range(2*n): net += DrawCell(x, gap*(i-n)+ofs, tp, ro, wa=wa)
+    
+    if ms != None: # output mask image
+        xlim(-x/2,x/2); ylim(-y/2,y/2); ms = out[:-4]+"_m.png";
+        savefig(ms, facecolor="w", dpi=dpi); tp = cv2.imread(ms, 0);
+        gap,tp = cv2.threshold(tp, 250, 255, cv2.THRESH_BINARY_INV);
+        cv2.imwrite(ms, tp, [int(cv2.IMWRITE_PXM_BINARY),1]);
+    imshow(im, extent=(-x/2,x/2,-y/2,y/2)); savefig(out, dpi=dpi);
+    close("all"); return net
+
+# Save Image with Reticulate Net:
+def SaveIm2(im, out, tp=None, ro=None, wa=None, gap=1.6, ms=None):
     if type(im)==str: im = imread(im) # load image
     dpi = 72; n = im.shape; y,x = n[0],n[1]; # width & height
     figure(figsize=(x/dpi, y/dpi), dpi=dpi); # set figsize
-    Add2Im(im, tp, ro, wa, gap); savefig(out, dpi=dpi);
-    if type(bg)==type(im): # output mask
-        imshow(bg, extent=(-x/2,x/2,-y/2,y/2));
-        mk = out[:-4]+"_m.png"; savefig(mk); im = cv2.imread(mk,0);
+    net = Add2Im(im, tp, ro, wa, gap); savefig(out, dpi=dpi);
+    if ms != None: # output mask image
+        if type(ms) != str: ms = "E:/Test/blank.png";
+        imshow(imread(ms), extent=(-x/2,x/2,-y/2,y/2));
+        out = out[:-4]+"_m.png"; savefig(out); im = cv2.imread(out, 0);
         ret,im = cv2.threshold(im, 250, 255, cv2.THRESH_BINARY_INV);
-        cv2.imwrite(mk, im, [int(cv2.IMWRITE_PXM_BINARY),1]);
-    close("all");
+        cv2.imwrite(out, im, [int(cv2.IMWRITE_PXM_BINARY),1]);
+    close("all"); return net
 
 # Batch to Save Images with Reticulate Net:
-def Batch_Save2Im(org, tps=range(5,9), num=None, bg=None):
-    if bg != None: bg = imread(str(bg)) # load mask image
+def Batch_SaveIm(org, tps=range(5,9), num=None, ms=None):
     if org[-1] != "/": org += "/"; # original image path
     dst = org.split("/"); dst[-2] += "2"; dst = "/".join(dst)
     if not os.path.exists(dst): os.mkdir(dst); # dst dir
@@ -129,9 +150,8 @@ def Batch_Save2Im(org, tps=range(5,9), num=None, bg=None):
             im = org+i+"/"+j; out = dst+i+"/"+j[:-4]+"_"; # image names
             for k in set(tp_rg): # loop for net types
                 if not os.path.exists(out+str(k)+j[-4:]):
-                    Save2Im(im, out+str(k)+j[-4:], tp=k, bg=bg);
+                    SaveIm(im, out+str(k)+j[-4:], tp=k, ms=ms);
 
 #####################################################################
 org = "/home/hua.fu/CASIA-WebFace/";
-bg = "/home/hua.fu/blank.png";
-Batch_Save2Im(org, bg=bg);
+Batch_Save2Im(org, ms=1);
