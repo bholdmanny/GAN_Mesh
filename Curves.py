@@ -154,4 +154,4 @@ def Batch_SaveIm(org, tps=range(5,9), num=None, ms=None):
 
 #####################################################################
 org = "/home/hua.fu/CASIA-WebFace/";
-Batch_Save2Im(org, ms=1);
+Batch_SaveIm(org, ms=1);
