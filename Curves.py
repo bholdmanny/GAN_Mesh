@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import matplotlib, os, cv2
+import os, cv2, matplotlib
 matplotlib.use('Agg') # before import matplotlib.pyplot or pylab!
 from pylab import * # import matplotlib & numpy
 
@@ -103,6 +103,20 @@ def Add2Im(im, tp=None, ro=None, wa=None, gap=1.6, fun=DrawCell): # add to image
     return net
 
 # Save Image with Reticulate Net:
+def Save2Im(im, out, tp=None, ro=None, wa=None, gap=1.6, ms=None):
+    if type(im)==str: im = imread(im) # load image
+    dpi = 72; n = im.shape; y,x = n[0],n[1]; # width & height
+    figure(figsize=(x/dpi, y/dpi), dpi=dpi); # set figsize
+    net = Add2Im(im, tp, ro, wa, gap); savefig(out, dpi=dpi);
+    if ms != None: # output mask image
+        if type(ms) != str: ms = "E:/Test/blank.png";
+        imshow(imread(ms), extent=(-x/2,x/2,-y/2,y/2));
+        out = out[:-4]+"_m.png"; savefig(out); im = cv2.imread(out, 0);
+        ret,im = cv2.threshold(im, 250, 255, cv2.THRESH_BINARY_INV);
+        cv2.imwrite(out, im, [int(cv2.IMWRITE_PXM_BINARY),1]);
+    close("all"); return net
+
+# Save Image with Reticulate Net:
 def SaveIm(im, out, tp=None, ro=None, wa=None, gap=1.6, ms=None):
     if type(im)==str: im = imread(im) # load image
     n = im.shape; y,x = n[0],n[1]; n = y//20; # width & height
@@ -123,34 +137,20 @@ def SaveIm(im, out, tp=None, ro=None, wa=None, gap=1.6, ms=None):
     imshow(im, extent=(-x/2,x/2,-y/2,y/2)); savefig(out, dpi=dpi);
     close("all"); return net
 
-# Save Image with Reticulate Net:
-def SaveIm2(im, out, tp=None, ro=None, wa=None, gap=1.6, ms=None):
-    if type(im)==str: im = imread(im) # load image
-    dpi = 72; n = im.shape; y,x = n[0],n[1]; # width & height
-    figure(figsize=(x/dpi, y/dpi), dpi=dpi); # set figsize
-    net = Add2Im(im, tp, ro, wa, gap); savefig(out, dpi=dpi);
-    if ms != None: # output mask image
-        if type(ms) != str: ms = "E:/Test/blank.png";
-        imshow(imread(ms), extent=(-x/2,x/2,-y/2,y/2));
-        out = out[:-4]+"_m.png"; savefig(out); im = cv2.imread(out, 0);
-        ret,im = cv2.threshold(im, 250, 255, cv2.THRESH_BINARY_INV);
-        cv2.imwrite(out, im, [int(cv2.IMWRITE_PXM_BINARY),1]);
-    close("all"); return net
-
 # Batch to Save Images with Reticulate Net:
-def Batch_SaveIm(org, tps=range(5,9), num=None, ms=None):
+def Batch_SaveIm(org, tp=range(5,9), num=None, ms=None):
     if org[-1] != "/": org += "/"; # original image path
     dst = org.split("/"); dst[-2] += "2"; dst = "/".join(dst)
     if not os.path.exists(dst): os.mkdir(dst); # dst dir
-    for i in os.listdir(org): #[:1]: # loop subdir in org dir
+    out = lambda image,k: image[:-4]+"_"+str(k)+".jpg";
+    for i in os.listdir(org)[:1]: # loop subdirs of org dir
         if not os.path.exists(dst+i): os.mkdir(dst+i); # dst subdir
-        for j in os.listdir(org+i): # loop images in org subdir
-            if num==None: tp_rg = tps; # loop all net types
-            else: tp_rg = np.random.randint(tps.start, tps.stop, num);
-            im = org+i+"/"+j; out = dst+i+"/"+j[:-4]+"_"; # image names
-            for k in set(tp_rg): # loop for net types
-                if not os.path.exists(out+str(k)+j[-4:]):
-                    SaveIm(im, out+str(k)+j[-4:], tp=k, ms=ms);
+        os.chdir(dst+i); outlist = os.listdir(dst+i); # pwd = dst+i
+        for im in os.listdir(org+i): # loop images in org subdir
+            if num == None: tps = tp; # loop for all types
+            else: tps = np.random.randint(tp.start, tp.stop, num);
+            tps = [k for k in set(tps) if out(im,k) not in outlist]
+            for k in tps: SaveIm(org+i+"/"+im, out(im,k), tp=k, ms=ms);
 
 #####################################################################
 org = "/home/hua.fu/CASIA-WebFace/";
