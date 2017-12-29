@@ -19,7 +19,7 @@ tail -f
 
 ps -efH
 ps al
-top
+top/htop
 kill
 mount/umount
 df -h
