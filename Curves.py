@@ -27,7 +27,7 @@ def LwAl(n=1, tp=1, dx=180): # random [linewidth, alpha] pair
 def RoAf(t, y, ra=0, af=None): # rotate or affine the curve
     if type(ra) != np.ndarray: # rotational angle -> matrix
         ra *= np.pi; ra = np.array([[cos(ra),-sin(ra)],[sin(ra),cos(ra)]])
-    if type(af) == np.ndarray:   ra = ra.dot(af); # affine & rotate
+    if type(af) == np.ndarray: ra = ra.dot(af); # affine & rotate
     y = ra.dot(np.array([t,y])); # rotate/affine the curve
     return y[0,:], y[1,:] # t'=y[0,:], y'=y[1,:]
 
@@ -139,10 +139,10 @@ def SaveIm(im, out, tp=None, ro=None, wa=None, gap=1.6, ms=None):
 
 # Batch to Save Images with Reticulate Net:
 def Batch_SaveIm(org, tp=range(5,9), num=None, ms=None):
+    out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
     if org[-1] != "/": org += "/"; # original image path
     dst = org.split("/"); dst[-2] += "2"; dst = "/".join(dst)
     if not os.path.exists(dst): os.mkdir(dst); # dst dir
-    out = lambda image,k: image[:-4]+"_"+str(k)+".jpg";
     for i in os.listdir(org)[:1]: # loop subdirs of org dir
         if not os.path.exists(dst+i): os.mkdir(dst+i); # dst subdir
         os.chdir(dst+i); outlist = os.listdir(dst+i); # pwd = dst+i
