@@ -1,5 +1,6 @@
-# MeshFace
-# from: zhangqianhui/AdversarialNetsPapers
+
+
+
 
 
 
@@ -32,13 +33,13 @@
   <meta property="fb:app_id" content="1401488693436528">
 
     
-    <meta content="https://avatars2.githubusercontent.com/u/7938702?s=400&amp;v=4" property="og:image" /><meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="zhangqianhui/AdversarialNetsPapers" property="og:title" /><meta content="https://github.com/zhangqianhui/AdversarialNetsPapers" property="og:url" /><meta content="AdversarialNetsPapers - The classical papers and codes about generative adversarial nets " property="og:description" />
+    <meta content="https://avatars1.githubusercontent.com/u/23517590?s=400&amp;v=4" property="og:image" /><meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="CosmosHua/MeshFace" property="og:title" /><meta content="https://github.com/CosmosHua/MeshFace" property="og:url" /><meta content="Contribute to MeshFace development by creating an account on GitHub." property="og:description" />
 
   <link rel="assets" href="https://assets-cdn.github.com/">
-  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6MjMwNTM1NjIwOjMyNWI1MDM5YjU1ODIwNTg5N2UzOTZlZDY2Mzc4M2YzOGM2MTFlZDQ0NWEyZTk5Zjg2ZjAwM2FhNGM3MzdlZTA=--fbc4ca588e811a2b3c82de2637325199015c2692">
+  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6MjMwNTM1NjIwOmRiNjk3ODI4YzMzZjgwYTMwOGU3NTRkYzE5MzhkYTFlMWRkYWY1YTQwZWIyMDdlN2FhYWQxOTI5YzhkZThhMGY=--e6aa276aee1181551abfcad4d71667519fee81cd">
   <meta name="pjax-timeout" content="1000">
   <link rel="sudo-modal" href="/sessions/sudo_modal">
-  <meta name="request-id" content="B599:29489:AAC723:DF80F5:5A5EECDB" data-pjax-transient>
+  <meta name="request-id" content="A2ED:29488:56FDB0:7A7DE1:5A5EECA0" data-pjax-transient>
   
 
   <meta name="selected-link" value="repo_source" data-pjax-transient>
@@ -48,7 +49,7 @@
   <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
     <meta name="google-analytics" content="UA-3769691-2">
 
-<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="https://collector.githubapp.com/github-external/browser_event" name="octolytics-event-url" /><meta content="B599:29489:AAC723:DF80F5:5A5EECDB" name="octolytics-dimension-request_id" /><meta content="sea" name="octolytics-dimension-region_edge" /><meta content="iad" name="octolytics-dimension-region_render" /><meta content="23517590" name="octolytics-actor-id" /><meta content="CosmosHua" name="octolytics-actor-login" /><meta content="a4214192ae299b47d89bcdc3bec5d69705081173aa01deb8ad35ecb0155fcf9b" name="octolytics-actor-hash" />
+<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="https://collector.githubapp.com/github-external/browser_event" name="octolytics-event-url" /><meta content="A2ED:29488:56FDB0:7A7DE1:5A5EECA0" name="octolytics-dimension-request_id" /><meta content="sea" name="octolytics-dimension-region_edge" /><meta content="iad" name="octolytics-dimension-region_render" /><meta content="23517590" name="octolytics-actor-id" /><meta content="CosmosHua" name="octolytics-actor-login" /><meta content="a4214192ae299b47d89bcdc3bec5d69705081173aa01deb8ad35ecb0155fcf9b" name="octolytics-actor-hash" />
 <meta content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" name="analytics-location" />
 
 
@@ -63,7 +64,7 @@
   <meta name="user-login" content="CosmosHua">
 
       <meta name="expected-hostname" content="github.com">
-    <meta name="js-proxy-site-detection-payload" content="ZjA3NjFmYTEzODRjZTc3MzRkNDYwMTIyMmE3MGQ0MmU2MmQwYTAwYjg2MzE4OTc3N2Y0Yzk5ZmYxOTA2MjUzYnx7InJlbW90ZV9hZGRyZXNzIjoiMTA2LjEyMC4xNS4xOTAiLCJyZXF1ZXN0X2lkIjoiQjU5OToyOTQ4OTpBQUM3MjM6REY4MEY1OjVBNUVFQ0RCIiwidGltZXN0YW1wIjoxNTE2MTcwNDY4LCJob3N0IjoiZ2l0aHViLmNvbSJ9">
+    <meta name="js-proxy-site-detection-payload" content="NDlmZWMyZTE3NWM0Yzc4Y2JjZDJiNWZiZDY1MDAwYmE3MTM2NzMwOWFiOWIyNTY0MWVmYjQ5YjZiNzZmODI4NXx7InJlbW90ZV9hZGRyZXNzIjoiMTA2LjEyMC4xNS4xOTAiLCJyZXF1ZXN0X2lkIjoiQTJFRDoyOTQ4ODo1NkZEQjA6N0E3REUxOjVBNUVFQ0EwIiwidGltZXN0YW1wIjoxNTE2MTcwNDA5LCJob3N0IjoiZ2l0aHViLmNvbSJ9">
 
     <meta name="enabled-features" content="UNIVERSE_BANNER,FREE_TRIALS">
 
@@ -72,15 +73,15 @@
   <meta http-equiv="x-pjax-version" content="d06047e32110c2a63429eb24b13fac78">
   
 
-      <link href="https://github.com/zhangqianhui/AdversarialNetsPapers/commits/master.atom" rel="alternate" title="Recent Commits to AdversarialNetsPapers:master" type="application/atom+xml">
+      <link href="https://github.com/CosmosHua/MeshFace/commits/master.atom" rel="alternate" title="Recent Commits to MeshFace:master" type="application/atom+xml">
 
-  <meta name="description" content="AdversarialNetsPapers - The classical papers and codes about generative adversarial nets ">
-  <meta name="go-import" content="github.com/zhangqianhui/AdversarialNetsPapers git https://github.com/zhangqianhui/AdversarialNetsPapers.git">
+  <meta name="description" content="Contribute to MeshFace development by creating an account on GitHub.">
+  <meta name="go-import" content="github.com/CosmosHua/MeshFace git https://github.com/CosmosHua/MeshFace.git">
 
-  <meta content="7938702" name="octolytics-dimension-user_id" /><meta content="zhangqianhui" name="octolytics-dimension-user_login" /><meta content="69095137" name="octolytics-dimension-repository_id" /><meta content="zhangqianhui/AdversarialNetsPapers" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="69095137" name="octolytics-dimension-repository_network_root_id" /><meta content="zhangqianhui/AdversarialNetsPapers" name="octolytics-dimension-repository_network_root_nwo" /><meta content="false" name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" />
+  <meta content="23517590" name="octolytics-dimension-user_id" /><meta content="CosmosHua" name="octolytics-dimension-user_login" /><meta content="114080215" name="octolytics-dimension-repository_id" /><meta content="CosmosHua/MeshFace" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="114080215" name="octolytics-dimension-repository_network_root_id" /><meta content="CosmosHua/MeshFace" name="octolytics-dimension-repository_network_root_nwo" /><meta content="true" name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" />
 
 
-    <link rel="canonical" href="https://github.com/zhangqianhui/AdversarialNetsPapers/blob/master/README.md" data-pjax-transient>
+    <link rel="canonical" href="https://github.com/CosmosHua/MeshFace/blob/master/GAN/README.md" data-pjax-transient>
 
 
   <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
@@ -125,9 +126,9 @@
       <div class="d-flex">
             <div class="">
               <div class="header-search scoped-search site-scoped-search js-site-search" role="search">
-  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/zhangqianhui/AdversarialNetsPapers/search" class="js-site-search-form" data-scoped-search-url="/zhangqianhui/AdversarialNetsPapers/search" data-unscoped-search-url="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/CosmosHua/MeshFace/search" class="js-site-search-form" data-scoped-search-url="/CosmosHua/MeshFace/search" data-unscoped-search-url="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
     <label class="form-control header-search-wrapper js-chromeless-input-container">
-        <a href="/zhangqianhui/AdversarialNetsPapers/blob/master/README.md" class="header-search-scope no-underline">This repository</a>
+        <a href="/CosmosHua/MeshFace/blob/master/GAN/README.md" class="header-search-scope no-underline">This repository</a>
       <input type="text"
         class="form-control header-search-input js-site-search-focus js-site-search-field is-clearable"
         data-hotkey="s"
@@ -205,9 +206,9 @@
 
   <div class="dropdown-divider"></div>
   <div class="dropdown-header">
-    <span title="zhangqianhui/AdversarialNetsPapers">This repository</span>
+    <span title="CosmosHua/MeshFace">This repository</span>
   </div>
-    <a class="dropdown-item" href="/zhangqianhui/AdversarialNetsPapers/issues/new" data-ga-click="Header, create new issue">
+    <a class="dropdown-item" href="/CosmosHua/MeshFace/issues/new" data-ga-click="Header, create new issue">
       New issue
     </a>
 
@@ -250,7 +251,7 @@
           Settings
         </a></li>
 
-        <li><!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/logout" class="logout-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="uCoNFjQ9488fJIE1VEbosVAxpz9QRSFhPMWrOr3gBHGKD41U98/8al/67C0ADTL3oiblYsYL2MkvLyvdl07Wug==" /></div>
+        <li><!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/logout" class="logout-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="wQXW223lk6Otk7kzNMjfcRJFze1cW91HI7R76zkrKNHzIFaZrheMBu1N1CtggwU34FKPsMoVJO8wXvsME4X6Gg==" /></div>
           <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
             Sign out
           </button>
@@ -261,7 +262,7 @@
 </ul>
 
 
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/logout" class="sr-only right-0" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="f+Zo5e5gQ1QgvGvC8aMzxMwt1q5+0jkvRqsbqvSo6utNw+inLZJc8WBiBtql6OmCPjqU8+icwIdVQZtN3gY4IA==" /></div>
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/logout" class="sr-only right-0" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="G4iiWsC4CtTq4YeMI5mQpN8XUrH70QpIysGjpo+GR9AprSIYA0oVcao/6pR30kriLQAQ7G2f8+DZKyNBpSiVGw==" /></div>
           <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
             Sign out
           </button>
@@ -296,10 +297,10 @@
 
       <ul class="pagehead-actions">
   <li>
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="4Mx06k15dm7xJq661LFVVSPITXAR6qkMBoQWsA7ncTiI/yaUhQcyobHsLjBC/kv57jBK/isi+Btoi11vrPGkGg==" /></div>      <input class="form-control" id="repository_id" name="repository_id" type="hidden" value="69095137" />
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="sfxp70jmcs/azh1ymHSHGAfyoOcrvqfmbRvWIfTvumnZzzuRgJg2AJoEnfgOO5m0ygqnaRF29vEDFJ3+VvlvSw==" /></div>      <input class="form-control" id="repository_id" name="repository_id" type="hidden" value="114080215" />
 
         <div class="select-menu js-menu-container js-select-menu">
-          <a href="/zhangqianhui/AdversarialNetsPapers/subscription"
+          <a href="/CosmosHua/MeshFace/subscription"
             class="btn btn-sm btn-with-count select-menu-button js-menu-target"
             role="button"
             aria-haspopup="true"
@@ -312,9 +313,9 @@
             </span>
           </a>
           <a class="social-count js-social-count"
-            href="/zhangqianhui/AdversarialNetsPapers/watchers"
-            aria-label="310 users are watching this repository">
-            310
+            href="/CosmosHua/MeshFace/watchers"
+            aria-label="0 users are watching this repository">
+            0
           </a>
 
         <div class="select-menu-modal-holder">
@@ -376,63 +377,63 @@
   <li>
     
   <div class="js-toggler-container js-social-container starring-container ">
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/zhangqianhui/AdversarialNetsPapers/unstar" class="starred js-social-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CHnMrgG86TgyBaWnkk96Sysq5/+cvLZ9nsl/dt6Sm3uGGo/bfHVh8j/r5gNl3j+Z8JnUeJwxpdU0hR9LaWddBA==" /></div>
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/CosmosHua/MeshFace/unstar" class="starred js-social-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="eLS4mabGBfphK3D2Zv/ixN3rV0uRp6IhyqZogrHQZLRC41Co++vdoatF0lUC/L76KP4PPlU6zJfZfPWUBeB7NQ==" /></div>
       <input type="hidden" name="context" value="repository"></input>
       <button
         type="submit"
         class="btn btn-sm btn-with-count js-toggler-target"
-        aria-label="Unstar this repository" title="Unstar zhangqianhui/AdversarialNetsPapers"
+        aria-label="Unstar this repository" title="Unstar CosmosHua/MeshFace"
         data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar">
         <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"/></svg>
         Unstar
       </button>
-        <a class="social-count js-social-count" href="/zhangqianhui/AdversarialNetsPapers/stargazers"
-           aria-label="2620 users starred this repository">
-          2,620
+        <a class="social-count js-social-count" href="/CosmosHua/MeshFace/stargazers"
+           aria-label="1 user starred this repository">
+          1
         </a>
 </form>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/zhangqianhui/AdversarialNetsPapers/star" class="unstarred js-social-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ArCGMrdTfcZiIzQ2VnC/+3G0VwKwkcUTAyXmy+ydjQuzGeYwtm6q/6u4ijlfl+r3IbeHpIuPKeG9pp7hma+9qg==" /></div>
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/CosmosHua/MeshFace/star" class="unstarred js-social-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="jtC/zoEkSgualu4hGwNbDUAm8sskh2b4e4SBVXv4iiReBIlECzrzyr/1sO5rS3paTQKexQV7pfwQ6qCpE3QP0w==" /></div>
       <input type="hidden" name="context" value="repository"></input>
       <button
         type="submit"
         class="btn btn-sm btn-with-count js-toggler-target"
-        aria-label="Star this repository" title="Star zhangqianhui/AdversarialNetsPapers"
+        aria-label="Star this repository" title="Star CosmosHua/MeshFace"
         data-ga-click="Repository, click star button, action:blob#show; text:Star">
         <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"/></svg>
         Star
       </button>
-        <a class="social-count js-social-count" href="/zhangqianhui/AdversarialNetsPapers/stargazers"
-           aria-label="2620 users starred this repository">
-          2,620
+        <a class="social-count js-social-count" href="/CosmosHua/MeshFace/stargazers"
+           aria-label="1 user starred this repository">
+          1
         </a>
 </form>  </div>
 
   </li>
 
   <li>
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/zhangqianhui/AdversarialNetsPapers/fork" class="btn-with-count" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="VBaAChnq1KYaG1GkIM5F65NqsieG4PX3bthcnW5ksTO17RpwjklS/3zDuCCQT0KExr1FNv6fwddL1rF8XUuxvg==" /></div>
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/CosmosHua/MeshFace/fork" class="btn-with-count" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="LbeEZJnqB94fmiZKhJ1DdnWhQbfO6vB8ec8+aPhVMnQt9zbx97CD2toj9uF8DRzzw+NqT62RSVYLVA24tAI7jA==" /></div>
             <button
                 type="submit"
                 class="btn btn-sm btn-with-count"
                 data-ga-click="Repository, show fork modal, action:blob#show; text:Fork"
-                title="Fork your own copy of zhangqianhui/AdversarialNetsPapers to your account"
-                aria-label="Fork your own copy of zhangqianhui/AdversarialNetsPapers to your account">
+                title="Fork your own copy of CosmosHua/MeshFace to your account"
+                aria-label="Fork your own copy of CosmosHua/MeshFace to your account">
               <svg aria-hidden="true" class="octicon octicon-repo-forked" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
               Fork
             </button>
 </form>
-    <a href="/zhangqianhui/AdversarialNetsPapers/network" class="social-count"
-       aria-label="974 users forked this repository">
-      974
+    <a href="/CosmosHua/MeshFace/network" class="social-count"
+       aria-label="1 user forked this repository">
+      1
     </a>
   </li>
 </ul>
 
       <h1 class="public ">
   <svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
-  <span class="author" itemprop="author"><a href="/zhangqianhui" class="url fn" rel="author">zhangqianhui</a></span><!--
+  <span class="author" itemprop="author"><a href="/CosmosHua" class="url fn" rel="author">CosmosHua</a></span><!--
 --><span class="path-divider">/</span><!--
---><strong itemprop="name"><a href="/zhangqianhui/AdversarialNetsPapers" data-pjax="#js-repo-pjax-container">AdversarialNetsPapers</a></strong>
+--><strong itemprop="name"><a href="/CosmosHua/MeshFace" data-pjax="#js-repo-pjax-container">MeshFace</a></strong>
 
 </h1>
 
@@ -445,43 +446,46 @@
      data-pjax="#js-repo-pjax-container">
 
   <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a href="/zhangqianhui/AdversarialNetsPapers" class="js-selected-navigation-item selected reponav-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /zhangqianhui/AdversarialNetsPapers" itemprop="url">
+    <a href="/CosmosHua/MeshFace" class="js-selected-navigation-item selected reponav-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /CosmosHua/MeshFace" itemprop="url">
       <svg aria-hidden="true" class="octicon octicon-code" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
       <span itemprop="name">Code</span>
       <meta itemprop="position" content="1">
 </a>  </span>
 
     <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-      <a href="/zhangqianhui/AdversarialNetsPapers/issues" class="js-selected-navigation-item reponav-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /zhangqianhui/AdversarialNetsPapers/issues" itemprop="url">
+      <a href="/CosmosHua/MeshFace/issues" class="js-selected-navigation-item reponav-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /CosmosHua/MeshFace/issues" itemprop="url">
         <svg aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
         <span itemprop="name">Issues</span>
-        <span class="Counter">3</span>
+        <span class="Counter">0</span>
         <meta itemprop="position" content="2">
 </a>    </span>
 
   <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a href="/zhangqianhui/AdversarialNetsPapers/pulls" class="js-selected-navigation-item reponav-item" data-hotkey="g p" data-selected-links="repo_pulls /zhangqianhui/AdversarialNetsPapers/pulls" itemprop="url">
+    <a href="/CosmosHua/MeshFace/pulls" class="js-selected-navigation-item reponav-item" data-hotkey="g p" data-selected-links="repo_pulls /CosmosHua/MeshFace/pulls" itemprop="url">
       <svg aria-hidden="true" class="octicon octicon-git-pull-request" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
       <span itemprop="name">Pull requests</span>
-      <span class="Counter">1</span>
+      <span class="Counter">0</span>
       <meta itemprop="position" content="3">
 </a>  </span>
 
-    <a href="/zhangqianhui/AdversarialNetsPapers/projects" class="js-selected-navigation-item reponav-item" data-hotkey="g b" data-selected-links="repo_projects new_repo_project repo_project /zhangqianhui/AdversarialNetsPapers/projects">
+    <a href="/CosmosHua/MeshFace/projects" class="js-selected-navigation-item reponav-item" data-hotkey="g b" data-selected-links="repo_projects new_repo_project repo_project /CosmosHua/MeshFace/projects">
       <svg aria-hidden="true" class="octicon octicon-project" height="16" version="1.1" viewBox="0 0 15 16" width="15"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
       Projects
       <span class="Counter" >0</span>
 </a>
-    <a href="/zhangqianhui/AdversarialNetsPapers/wiki" class="js-selected-navigation-item reponav-item" data-hotkey="g w" data-selected-links="repo_wiki /zhangqianhui/AdversarialNetsPapers/wiki">
+    <a href="/CosmosHua/MeshFace/wiki" class="js-selected-navigation-item reponav-item" data-hotkey="g w" data-selected-links="repo_wiki /CosmosHua/MeshFace/wiki">
       <svg aria-hidden="true" class="octicon octicon-book" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg>
       Wiki
 </a>
 
-  <a href="/zhangqianhui/AdversarialNetsPapers/pulse" class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse /zhangqianhui/AdversarialNetsPapers/pulse">
+  <a href="/CosmosHua/MeshFace/pulse" class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse /CosmosHua/MeshFace/pulse">
     <svg aria-hidden="true" class="octicon octicon-graph" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
     Insights
 </a>
-
+    <a href="/CosmosHua/MeshFace/settings" class="js-selected-navigation-item reponav-item" data-selected-links="repo_settings repo_branch_settings hooks integration_installations repo_keys_settings /CosmosHua/MeshFace/settings">
+      <svg aria-hidden="true" class="octicon octicon-gear" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 8.77v-1.6l-1.94-.64-.45-1.09.88-1.84-1.13-1.13-1.81.91-1.09-.45-.69-1.92h-1.6l-.63 1.94-1.11.45-1.84-.88-1.13 1.13.91 1.81-.45 1.09L0 7.23v1.59l1.94.64.45 1.09-.88 1.84 1.13 1.13 1.81-.91 1.09.45.69 1.92h1.59l.63-1.94 1.11-.45 1.84.88 1.13-1.13-.92-1.81.47-1.09L14 8.75v.02zM7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>
+      Settings
+</a>
 </nav>
 
 
@@ -491,9 +495,9 @@
   <div class="repository-content ">
 
     
-  <a href="/zhangqianhui/AdversarialNetsPapers/blob/2180f0b656332cd137834c143ffdc2d417387262/README.md" class="d-none js-permalink-shortcut" data-hotkey="y">Permalink</a>
+  <a href="/CosmosHua/MeshFace/blob/057b53cebf5055434af95740efee81df9f221708/GAN/README.md" class="d-none js-permalink-shortcut" data-hotkey="y">Permalink</a>
 
-  <!-- blob contrib key: blob_contributors:v21:e02b1f98571e1a33785d55aa66352f98 -->
+  <!-- blob contrib key: blob_contributors:v21:44625fa0d5adef7e46770a565dc3fcc3 -->
 
   <div class="file-navigation js-zeroclipboard-container">
     
@@ -515,12 +519,12 @@
 
       <div class="select-menu-filters">
         <div class="select-menu-text-filter">
-          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="form-control js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+          <input type="text" aria-label="Find or create a branch…" id="context-commitish-filter-field" class="form-control js-filterable-field js-navigation-enable" placeholder="Find or create a branch…">
         </div>
         <div class="select-menu-tabs">
           <ul>
             <li class="select-menu-tab">
-              <a href="#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab" role="tab">Branches</a>
+              <a href="#" data-tab-filter="branches" data-filter-placeholder="Find or create a branch…" class="js-select-menu-tab" role="tab">Branches</a>
             </li>
             <li class="select-menu-tab">
               <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab" role="tab">Tags</a>
@@ -535,7 +539,7 @@
 
 
             <a class="select-menu-item js-navigation-item js-navigation-open selected"
-               href="/zhangqianhui/AdversarialNetsPapers/blob/master/README.md"
+               href="/CosmosHua/MeshFace/blob/master/GAN/README.md"
                data-name="master"
                data-skip-pjax="true"
                rel="nofollow">
@@ -546,7 +550,16 @@
             </a>
         </div>
 
-          <div class="select-menu-no-results">Nothing to show</div>
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/CosmosHua/MeshFace/branches" class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Pk4sOSn1OGt+V00S11OIpq768yGOgMlaboCF/h5WBBcXNDCrv9afHJf+umvpgG0H2s2+3tBlyMDGawpV5f6rkQ==" /></div>
+          <svg aria-hidden="true" class="octicon octicon-git-branch select-menu-item-icon" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+            <div class="select-menu-item-text">
+              <span class="select-menu-item-heading">Create branch: <span class="js-new-item-name"></span></span>
+              <span class="description">from ‘master’</span>
+            </div>
+            <input type="hidden" name="name" id="name" class="js-new-item-value">
+            <input type="hidden" name="branch" id="branch" value="master">
+            <input type="hidden" name="path" id="path" value="GAN/README.md">
+</form>
       </div>
 
       <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
@@ -563,7 +576,7 @@
 </div>
 
     <div class="BtnGroup float-right">
-      <a href="/zhangqianhui/AdversarialNetsPapers/find/master"
+      <a href="/CosmosHua/MeshFace/find/master"
             class="js-pjax-capture-input btn btn-sm BtnGroup-item"
             data-pjax
             data-hotkey="t">
@@ -572,125 +585,30 @@
       <button aria-label="Copy file path to clipboard" class="js-zeroclipboard btn btn-sm BtnGroup-item tooltipped tooltipped-s" data-copied-hint="Copied!" type="button">Copy path</button>
     </div>
     <div class="breadcrumb js-zeroclipboard-target">
-      <span class="repo-root js-repo-root"><span class="js-path-segment"><a href="/zhangqianhui/AdversarialNetsPapers"><span>AdversarialNetsPapers</span></a></span></span><span class="separator">/</span><strong class="final-path">README.md</strong>
+      <span class="repo-root js-repo-root"><span class="js-path-segment"><a href="/CosmosHua/MeshFace"><span>MeshFace</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a href="/CosmosHua/MeshFace/tree/master/GAN"><span>GAN</span></a></span><span class="separator">/</span><strong class="final-path">README.md</strong>
     </div>
   </div>
 
 
-  
-  <div class="commit-tease">
-      <span class="float-right">
-        <a class="commit-tease-sha" href="/zhangqianhui/AdversarialNetsPapers/commit/2180f0b656332cd137834c143ffdc2d417387262" data-pjax>
-          2180f0b
-        </a>
-        <relative-time datetime="2018-01-03T04:32:18Z">Jan 3, 2018</relative-time>
-      </span>
-      <div>
-        <img alt="@zhangqianhui" class="avatar" height="20" src="https://avatars2.githubusercontent.com/u/7938702?s=40&amp;v=4" width="20" />
-        <a href="/zhangqianhui" class="user-mention" rel="author">zhangqianhui</a>
-          <a href="/zhangqianhui/AdversarialNetsPapers/commit/2180f0b656332cd137834c143ffdc2d417387262" class="message" data-pjax="true" title="Update README.md">Update README.md</a>
-      </div>
+  <include-fragment class="commit-tease" src="/CosmosHua/MeshFace/contributors/master/GAN/README.md">
+    <div>
+      Fetching contributors&hellip;
+    </div>
 
     <div class="commit-tease-contributors">
-      <button type="button" class="btn-link muted-link contributors-toggle" data-facebox="#blob_contributors_box">
-        <strong>15</strong>
-         contributors
-      </button>
-          <a class="avatar-link tooltipped tooltipped-s" aria-label="zhangqianhui" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=zhangqianhui"><img alt="@zhangqianhui" class="avatar" height="20" src="https://avatars2.githubusercontent.com/u/7938702?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="familyld" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=familyld"><img alt="@familyld" class="avatar" height="20" src="https://avatars2.githubusercontent.com/u/12497920?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="WarBean" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=WarBean"><img alt="@WarBean" class="avatar" height="20" src="https://avatars0.githubusercontent.com/u/5501392?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="layumi" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=layumi"><img alt="@layumi" class="avatar" height="20" src="https://avatars0.githubusercontent.com/u/8390471?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="wentaozhu" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=wentaozhu"><img alt="@wentaozhu" class="avatar" height="20" src="https://avatars3.githubusercontent.com/u/10062637?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="npapernot" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=npapernot"><img alt="@npapernot" class="avatar" height="20" src="https://avatars3.githubusercontent.com/u/8835830?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="chihyaoma" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=chihyaoma"><img alt="@chihyaoma" class="avatar" height="20" src="https://avatars1.githubusercontent.com/u/6862817?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="zongyuange" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=zongyuange"><img alt="@zongyuange" class="avatar" height="20" src="https://avatars1.githubusercontent.com/u/5070099?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="fxia22" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=fxia22"><img alt="@fxia22" class="avatar" height="20" src="https://avatars2.githubusercontent.com/u/5158896?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="tyrinwu" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=tyrinwu"><img alt="@tyrinwu" class="avatar" height="20" src="https://avatars3.githubusercontent.com/u/11923768?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="petrbel" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=petrbel"><img alt="@petrbel" class="avatar" height="20" src="https://avatars1.githubusercontent.com/u/461519?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="macaodha" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=macaodha"><img alt="@macaodha" class="avatar" height="20" src="https://avatars2.githubusercontent.com/u/6660523?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="martyn" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=martyn"><img alt="@martyn" class="avatar" height="20" src="https://avatars3.githubusercontent.com/u/6994?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="transcranial" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=transcranial"><img alt="@transcranial" class="avatar" height="20" src="https://avatars0.githubusercontent.com/u/6182852?s=40&amp;v=4" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="kli-nlpr" href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md?author=kli-nlpr"><img alt="@kli-nlpr" class="avatar" height="20" src="https://avatars3.githubusercontent.com/u/13194870?s=40&amp;v=4" width="20" /> </a>
-
-
+      <img alt="" class="loader-loading float-left" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32-EAF2F5.gif" width="16" />
+      <span class="loader-error">Cannot retrieve contributors at this time</span>
     </div>
-
-    <div id="blob_contributors_box" style="display:none">
-      <h2 class="facebox-header" data-facebox-id="facebox-header">Users who have contributed to this file</h2>
-      <ul class="facebox-user-list" data-facebox-id="facebox-description">
-          <li class="facebox-user-list-item">
-            <img alt="@zhangqianhui" height="24" src="https://avatars3.githubusercontent.com/u/7938702?s=48&amp;v=4" width="24" />
-            <a href="/zhangqianhui">zhangqianhui</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@familyld" height="24" src="https://avatars3.githubusercontent.com/u/12497920?s=48&amp;v=4" width="24" />
-            <a href="/familyld">familyld</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@WarBean" height="24" src="https://avatars1.githubusercontent.com/u/5501392?s=48&amp;v=4" width="24" />
-            <a href="/WarBean">WarBean</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@layumi" height="24" src="https://avatars1.githubusercontent.com/u/8390471?s=48&amp;v=4" width="24" />
-            <a href="/layumi">layumi</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@wentaozhu" height="24" src="https://avatars2.githubusercontent.com/u/10062637?s=48&amp;v=4" width="24" />
-            <a href="/wentaozhu">wentaozhu</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@npapernot" height="24" src="https://avatars2.githubusercontent.com/u/8835830?s=48&amp;v=4" width="24" />
-            <a href="/npapernot">npapernot</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@chihyaoma" height="24" src="https://avatars0.githubusercontent.com/u/6862817?s=48&amp;v=4" width="24" />
-            <a href="/chihyaoma">chihyaoma</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@zongyuange" height="24" src="https://avatars0.githubusercontent.com/u/5070099?s=48&amp;v=4" width="24" />
-            <a href="/zongyuange">zongyuange</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@fxia22" height="24" src="https://avatars3.githubusercontent.com/u/5158896?s=48&amp;v=4" width="24" />
-            <a href="/fxia22">fxia22</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@tyrinwu" height="24" src="https://avatars2.githubusercontent.com/u/11923768?s=48&amp;v=4" width="24" />
-            <a href="/tyrinwu">tyrinwu</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@petrbel" height="24" src="https://avatars0.githubusercontent.com/u/461519?s=48&amp;v=4" width="24" />
-            <a href="/petrbel">petrbel</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@macaodha" height="24" src="https://avatars3.githubusercontent.com/u/6660523?s=48&amp;v=4" width="24" />
-            <a href="/macaodha">macaodha</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@martyn" height="24" src="https://avatars2.githubusercontent.com/u/6994?s=48&amp;v=4" width="24" />
-            <a href="/martyn">martyn</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@transcranial" height="24" src="https://avatars1.githubusercontent.com/u/6182852?s=48&amp;v=4" width="24" />
-            <a href="/transcranial">transcranial</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@kli-nlpr" height="24" src="https://avatars2.githubusercontent.com/u/13194870?s=48&amp;v=4" width="24" />
-            <a href="/kli-nlpr">kli-nlpr</a>
-          </li>
-      </ul>
-    </div>
-  </div>
-
+</include-fragment>
 
   <div class="file">
     <div class="file-header">
   <div class="file-actions">
 
     <div class="BtnGroup">
-      <a href="/zhangqianhui/AdversarialNetsPapers/raw/master/README.md" class="btn btn-sm BtnGroup-item" id="raw-url">Raw</a>
-        <a href="/zhangqianhui/AdversarialNetsPapers/blame/master/README.md" class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b">Blame</a>
-      <a href="/zhangqianhui/AdversarialNetsPapers/commits/master/README.md" class="btn btn-sm BtnGroup-item" rel="nofollow">History</a>
+      <a href="/CosmosHua/MeshFace/raw/master/GAN/README.md" class="btn btn-sm BtnGroup-item" id="raw-url">Raw</a>
+        <a href="/CosmosHua/MeshFace/blame/master/GAN/README.md" class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b">Blame</a>
+      <a href="/CosmosHua/MeshFace/commits/master/GAN/README.md" class="btn btn-sm BtnGroup-item" rel="nofollow">History</a>
     </div>
 
         <a class="btn-octicon tooltipped tooltipped-nw"
@@ -700,23 +618,23 @@
             <svg aria-hidden="true" class="octicon octicon-device-desktop" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M15 2H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h5.34c-.25.61-.86 1.39-2.34 2h8c-1.48-.61-2.09-1.39-2.34-2H15c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 9H1V3h14v8z"/></svg>
         </a>
 
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/zhangqianhui/AdversarialNetsPapers/edit/master/README.md" class="inline-form js-update-url-with-hash" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="MJ6LMi8qSndcdMY9her7JVxw+R6H7Wo0rOIOm5CnFeSA2AWVrbNdkpfkjti21J8UYXNgndyaULwKRcRpSdLxWg==" /></div>
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/CosmosHua/MeshFace/edit/master/GAN/README.md" class="inline-form js-update-url-with-hash" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="yCtdvdD8WN3196w800uo3i2D8FPhEbKczyQwC8skQMXM26D0ptCCrd678siYuCN5mNXiQ0KXHcqFXATOdXvZMg==" /></div>
             <button class="btn-octicon tooltipped tooltipped-nw" type="submit"
-              aria-label="Edit the file in your fork of this project" data-hotkey="e" data-disable-with>
+              aria-label="Edit this file" data-hotkey="e" data-disable-with>
               <svg aria-hidden="true" class="octicon octicon-pencil" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
             </button>
 </form>
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/zhangqianhui/AdversarialNetsPapers/delete/master/README.md" class="inline-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="N7BHVYuu7rQNAtlzdeog95NBWOhD6Ei2eUZX+/LLsEXd5tZwVee64qSD+CJe7S4VO+aJVIQBm2HwgzVUJiS7Eg==" /></div>
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/CosmosHua/MeshFace/delete/master/GAN/README.md" class="inline-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="S+M561bxPYGknq9PrDEfrTtKMS9Cffd4hyYMF3VrQHat3cRDLv+fSFVdviDendvsg0ovOA3OPGCN0Uq0rMGiwQ==" /></div>
           <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
-            aria-label="Delete the file in your fork of this project" data-disable-with>
+            aria-label="Delete this file" data-disable-with>
             <svg aria-hidden="true" class="octicon octicon-trashcan" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
           </button>
 </form>  </div>
 
   <div class="file-info">
-      276 lines (142 sloc)
+      273 lines (140 sloc)
       <span class="file-info-divider"></span>
-    19.5 KB
+    19.2 KB
   </div>
 </div>
 
@@ -754,9 +672,10 @@
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Improved Techniques for Training GANs] <a href="https://arxiv.org/abs/1606.03498" rel="nofollow">[Paper]</a><a href="https://github.com/openai/improved-gan">[Code]</a>(Goodfellow's paper)</p>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Unsupervised and Semi-supervised Learning with Categorical Generative Adversarial Networks] <a href="https://arxiv.org/abs/1511.06390" rel="nofollow">[Paper]</a>(ICLR)</p>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Semi-Supervised QA with Generative Domain-Adaptive Nets] <a href="https://arxiv.org/abs/1702.02206" rel="nofollow">[Paper]</a>(ACL 2017)</p>
-<p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Good Semi-supervised Learning that Requires a Bad GAN] <a href="https://arxiv.org/abs/1705.09783" rel="nofollow">[Paper]</a><a href="https://github.com/kimiyoung/ssl_bad_gan">[Code]</a>(NIPS 2017)</p>
 <h2><a href="#ensemble" aria-hidden="true" class="anchor" id="user-content-ensemble"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ensemble</h2>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [AdaGAN: Boosting Generative Models] <a href="https://arxiv.org/abs/1701.02386" rel="nofollow">[Paper]</a>[[Code]]（Google Brain）</p>
+<h2><a href="#clustering" aria-hidden="true" class="anchor" id="user-content-clustering"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clustering</h2>
+<p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Unsupervised and Semi-supervised Learning with Categorical Generative Adversarial Networks] <a href="https://arxiv.org/abs/1511.06390" rel="nofollow">[Paper]</a>(ICLR)</p>
 <h2><a href="#image-blending" aria-hidden="true" class="anchor" id="user-content-image-blending"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Image blending</h2>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [GP-GAN: Towards Realistic High-Resolution Image Blending] <a href="https://arxiv.org/abs/1703.07195" rel="nofollow">[Paper]</a><a href="https://github.com/wuhuikai/GP-GAN">[Code]</a></p>
 <h2><a href="#image-inpainting" aria-hidden="true" class="anchor" id="user-content-image-inpainting"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Image Inpainting</h2>
@@ -801,12 +720,11 @@
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Learning to Discover Cross-Domain Relations with Generative Adversarial Networks] <a href="https://arxiv.org/abs/1703.05192" rel="nofollow">[Paper]</a><a href="https://github.com/carpedm20/DiscoGAN-pytorch">[Code]</a></p>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks] <a href="https://junyanz.github.io/CycleGAN/" rel="nofollow">[Paper]</a><a href="https://github.com/junyanz/CycleGAN">[Code]</a></p>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [CoGAN: Coupled Generative Adversarial Networks] <a href="https://arxiv.org/abs/1606.07536" rel="nofollow">[Paper]</a><a href="https://github.com/andrewliao11/CoGAN-tensorflow">[Code]</a>(NIPS 2016)</p>
-<p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Unsupervised Image-to-Image Translation with Generative Adversarial Networks] <a href="https://arxiv.org/pdf/1701.02676.pdf" rel="nofollow">[Paper]</a>(NIPS 2017)</p>
+<p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Unsupervised Image-to-Image Translation with Generative Adversarial Networks] <a href="https://arxiv.org/pdf/1701.02676.pdf" rel="nofollow">[Paper]</a></p>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Unsupervised Image-to-Image Translation Networks] <a href="https://arxiv.org/abs/1703.00848" rel="nofollow">[Paper]</a></p>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Triangle Generative Adversarial Networks] <a href="https://arxiv.org/abs/1709.06548" rel="nofollow">[Paper]</a></p>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [ST-GAN: Unsupervised Facial Image Semantic Transformation Using Generative Adversarial Networks] <a href="http://proceedings.mlr.press/v77/zhang17c.html" rel="nofollow">[Paper]</a></p>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs] <a href="https://arxiv.org/abs/1711.11585" rel="nofollow">[Paper]</a><a href="https://github.com/NVIDIA/pix2pixHD">[code]</a></p>
-<p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [XGAN: Unsupervised Image-to-Image Translation for Many-to-Many Mappings] <a href="https://arxiv.org/abs/1711.05139" rel="nofollow">[Paper]</a>(Reviewed)</p>
 <h2><a href="#gan-theory" aria-hidden="true" class="anchor" id="user-content-gan-theory"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GAN Theory</h2>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Energy-based generative adversarial network] <a href="https://arxiv.org/pdf/1609.03126v2.pdf" rel="nofollow">[Paper]</a><a href="https://github.com/buriburisuri/ebgan">[Code]</a>(Lecun paper)</p>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Improved Techniques for Training GANs] <a href="https://arxiv.org/abs/1606.03498" rel="nofollow">[Paper]</a><a href="https://github.com/openai/improved-gan">[Code]</a>(Goodfellow's paper)</p>
@@ -821,8 +739,6 @@
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Improved Training of Wasserstein GANs] <a href="https://arxiv.org/abs/1704.00028" rel="nofollow">[Paper]</a><a href="https://github.com/igul222/improved_wgan_training">[Code]</a>(The improve of wgan)</p>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Towards Principled Methods for Training Generative Adversarial Networks] <a href="https://arxiv.org/abs/1701.04862" rel="nofollow">[Paper]</a></p>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Generalization and Equilibrium in Generative Adversarial Nets] <a href="https://arxiv.org/abs/1703.00573" rel="nofollow">[Paper]</a>（ICML 2017）</p>
-<h1><a href="#medicine" aria-hidden="true" class="anchor" id="user-content-medicine"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Medicine</h1>
-<p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Unsupervised Anomaly Detection with Generative Adversarial Networks to Guide Marker Discovery] <a href="https://arxiv.org/abs/1703.05921" rel="nofollow">[Paper]</a></p>
 <h2><a href="#3d" aria-hidden="true" class="anchor" id="user-content-3d"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3D</h2>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Learning a Probabilistic Latent Space of Object Shapes via 3D Generative-Adversarial Modeling] <a href="https://arxiv.org/abs/1610.07584" rel="nofollow">[Paper]</a><a href="http://3dgan.csail.mit.edu/" rel="nofollow">[Web]</a><a href="https://github.com/zck119/3dgan-release">[code]</a>(2016 NIPS)</p>
 <p><g-emoji alias="white_check_mark" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2705.png" ios-version="6.0">✅</g-emoji> [Transformation-Grounded Image Generation Network for Novel 3D View Synthesis] <a href="http://www.cs.unc.edu/%7Eeunbyung/tvsn/" rel="nofollow">[Web]</a>(CVPR 2017)</p>
@@ -910,7 +826,7 @@
 <div class="footer container-lg px-3" role="contentinfo">
   <div class="position-relative d-flex flex-justify-between py-6 mt-6 f6 text-gray border-top border-gray-light ">
     <ul class="list-style-none d-flex flex-wrap ">
-      <li class="mr-3">&copy; 2018 <span title="0.22362s from unicorn-1637019202-pvxsv">GitHub</span>, Inc.</li>
+      <li class="mr-3">&copy; 2018 <span title="0.11653s from unicorn-3575639617-z8txk">GitHub</span>, Inc.</li>
         <li class="mr-3"><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
         <li class="mr-3"><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
         <li class="mr-3"><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
