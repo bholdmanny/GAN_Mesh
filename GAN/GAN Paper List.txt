@@ -1,0 +1,54 @@
+﻿https://mp.weixin.qq.com/s?__biz=MzAwMjM3MTc5OA==&mid=2652692740&idx=1&sn=f1b134f63eb0bf5e4d6759db4d740e58
+
+
+[1] Arjovsky and Bottou, “Towards Principled Methods for Training Generative Adversarial Networks”. ICLR 2017. 
+
+[2] Goodfellow et al., “Generative Adversarial Networks”. ICLR 2014. 
+
+[3] Che et al., “Mode Regularized Generative Adversarial Networks”. ICLR 2017. 
+
+[4] Zhao et al., “Energy-based Generative Adversarial Networks”. ICLR 2017. 
+
+[5] Berthelot et al., “BEGAN: Boundary Equilibrium Generative Adversarial Networks”. arXiv preprint 2017. 
+
+[6] Sønderby, et al., “Amortised MAP Inference for Image Super-Resolution”. ICLR 2017. 
+
+[7] Arjovsky et al., “Wasserstein GANs”. ICML 2017. 
+
+[8] Villani, Cedric. “Optimal transport: old and new”, volume 338. Springer Science & Business Media, 2008.
+
+[9] Jun-Yan Zhu*, Taesung Park*, Phillip Isola, Alexei A. Efros. “Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks”. arXiv preprint 2017. 
+
+[10] Taeksoo Kim, Moonsu Cha, Hyunsoo Kim, Jung Kwon Lee, Jiwon Kim. “Learning to Discover Cross-Domain Relations with Generative Adversarial Networks”. ICML 2017. 
+
+[11] Zili Yi, Hao Zhang, Ping Tan, Minglun Gong. “DualGAN: Unsupervised Dual Learning for Image-to-Image Translation”. arXiv preprint 2017. 
+
+[12] Jeff Donahue, Philipp Krähenbühl, Trevor Darrell. “Adversarial Feature Learning”. ICLR 2017. 
+
+[13] Vincent Dumoulin, Ishmael Belghazi, Ben Poole, Olivier Mastropietro, Alex Lamb, Martin Arjovsky, Aaron Courville. “Adversarially Learned Inference”. ICLR 2017. 
+
+[14] Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, Aaron Courville. “Improved Training of Wasserstein GANs”. arXiv preprint 2017.
+
+[15] Mehdi Mirza, Simon Osindero. “Conditional Generative Adversarial Nets”. arXiv preprint 2014. 
+
+[16] Emily Denton, Soumith Chintala, Arthur Szlam, Rob Fergus. “Deep Generative Image Models using a Laplacian Pyramid of Adversarial Networks”. arXiv preprint 2015. 
+
+[17] Alec Radford, Luke Metz, Soumith Chintala. “Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks”. ICLR 2016.
+
+[18] Scott Reed, Zeynep Akata, Xinchen Yan, Lajanugen Logeswaran, Bernt Schiele, Honglak Lee. “Generative Adversarial Text to Image Synthesis”. ICML 2016. 
+
+[19] Tim Salimans, Ian Goodfellow, Wojciech Zaremba, Vicki Cheung, Alec Radford, Xi Chen. “Improved Techniques for Training GANs”. arXiv preprint 2016. 
+
+[20] Han Zhang, Tao Xu, Hongsheng Li, Shaoting Zhang, Xiaolei Huang, Xiaogang Wang, Dimitris Metaxas. “StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks”. arXiv preprint 2016. 
+
+[21] Phillip Isola, Jun-Yan Zhu, Tinghui Zhou, Alexei A. Efros. “Image-to-Image Translation with Conditional Adversarial Networks”. CVPR 2017.
+
+[22] Yaniv Taigman, Adam Polyak, Lior Wolf. “Unsupervised Cross-Domain Image Generation”. ICLR 2017. 
+
+[23] Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio. “Generative Adversarial Nets”. NIPS 2014. 
+
+[24] Jun-Yan Zhu, Philipp Krähenbühl, Eli Shechtman and Alexei A. Efros. “Generative Visual Manipulation on the Natural Image Manifold”, ECCV 2016. 
+
+[25] Huikai Wu, Shuai Zheng, Junge Zhang, Kaiqi Huang. “GP-GAN: Towards Realistic High-Resolution Image Blending”. arXiv preprint 2017. 
+
+[26] Anh Nguyen, Jeff Clune, Yoshua Bengio, Alexey Dosovitskiy, Jason Yosinski. “Plug & Play Generative Networks: Conditional Iterative Generation of Images in Latent Space”. CVPR 2017.
