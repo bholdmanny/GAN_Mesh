@@ -1,0 +1,67 @@
+﻿Command line instructions
+
+Git global setup
+
+git config --global user.name "xxx"
+git config --global user.email "xxx@xxx.com"
+
+Create a new repository
+
+git clone git@gitlab.xxx.com:ia_cv/android-app-face-acs.git
+cd android-app-face-acs
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master
+
+Existing folder
+
+cd existing_folder
+git init
+git remote add origin git@gitlab.xxx.com:ia_cv/android-app-face-acs.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+
+Existing Git repository
+
+cd existing_repo
+git remote add origin git@gitlab.xxx.com:ia_cv/android-app-face-acs.git
+git push -u origin --all
+git push -u origin --tags
+
+-------------------------------------------------------------------
+
+第一次下载项目代码：git clone git@gitlab.xxx.com:ia_nlp/android-app-speech-rec.git
+下载指定分支的代码：git clone -b 分支名  git地址
+更新服务器代码到本地：git pull
+查看分支：git branch
+切换分支：git checkout 分支名
+进入commit分支目录：cd 路径
+查看提交日志：git log        git log -p commit_Id
+退出：wq
+
+提交代码流程（重点）：
+比较之前先git pull将服务器最新代码更新到本地
+1.本地比较代码
+2.git status  
+3.git add －A
+4.git commit -m “提交内容描述”
+5.git push origin developer
+
+dev分支合并到master分支流程：
+1.git checkout master   切回主分支
+2.git merge dev
+3.git push origin master
+
+
+需要下载的软件：
+Sourcetree
+beyondcompare
+
+----------------------------------------------------------------------
+
+查看配置信息   git config -l
+覆盖提交   git push origin <分支名> --force
+
+git@gitlab.xxx.com:ia_cv/android-app-face-acs.git
