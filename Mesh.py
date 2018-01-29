@@ -33,7 +33,7 @@ def RoAf(t, y, ra=0, af=None): # rotate or affine the curve
 
 # Draw Curve with Annotation:
 def DrawCu(tp, p=None, xi=0, dx=20, yo=0, A=1, ra=0, af=0, wa=[]): # draw curve
-    if type(tp) != tuple: tp = (tp,0,0) # set default tp
+    if type(tp) != (tuple or list): tp = (tp,0,0) # set default tp
     if p==None or len(p)<6: # set random curve parameters
         p = [round(2*i,2) for i in np.random.rand(9)]; p[2]=p[5]=p[8]=1
     t = np.linspace(xi, xi+2*dx, round(2*dx*(np.random.rand()+1)), endpoint=True);
@@ -137,7 +137,7 @@ def SaveIm(im, out, tp, ro=None, wa=None, gap=1.6, ms=None):
     close("all"); return net
 
 # Batch to Save Images with Reticulate Net:
-def Batch_SaveIm(org, tp, num, ms=None):
+def Batch_SaveIm(org, tp, num=None, ms=None):
     out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
     if org[-1] != "/": org += "/"; # original image path
     dst = org.split("/"); dst[-2] += "2"; dst = "/".join(dst)
@@ -146,14 +146,14 @@ def Batch_SaveIm(org, tp, num, ms=None):
         if not os.path.exists(dst+i): os.mkdir(dst+i); # dst subdir
         os.chdir(dst+i); outlist = os.listdir(dst+i); # pwd = dst+i
         for im in os.listdir(org+i): # loop images in org subdir
-            if num<1: tps = tp[0] # loop for all types
+            if num==None or type(num)!=int: tps = tp[0] # loop all types
             else: tps = np.random.randint(tp[0].start, tp[0].stop, num);
             tps = [k for k in set(tps) if out(im,k) not in outlist]
-            for k in tps:
+            for k in tps: # loop for types
                 k = (k, tp[1], (1+(k==4))*tp[2]);
                 SaveIm(org+i+"/"+im, out(im,k[0]), tp=k, ms=ms);
 
 #####################################################################
-org = "/home/hua.fu/CASIA-WebFace/";
+org = "E:/FacePic/WebFace";
 tp = [range(1,5), 0, 0.4];
-Batch_SaveIm(org, tp, ms=1);
+Batch_SaveIm(org, tp, num=1, ms=None);
