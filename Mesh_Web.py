@@ -99,7 +99,7 @@ def Batch_SaveIm(org, tp, num=None, ms=None):
     if org[-1] != "/": org += "/"; # original image path
     dst = org.split("/"); dst[-2] += "2"; dst = "/".join(dst)
     if not os.path.exists(dst): os.mkdir(dst); # dst dir
-    for i in os.listdir(org) #[:1]: # loop subdirs of org dir
+    for i in os.listdir(org): # loop subdirs of org dir
         if not os.path.exists(dst+i): os.mkdir(dst+i); # dst subdir
         os.chdir(dst+i); outlist = os.listdir(dst+i); # pwd = dst+i
         for im in os.listdir(org+i): # loop images in org subdir
