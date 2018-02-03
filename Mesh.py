@@ -136,24 +136,33 @@ def SaveIm(im, out, tp, ro=None, wa=None, gap=1.6, ms=None):
     imshow(im, extent=(-x/2,x/2,-y/2,y/2)); savefig(out, dpi=dpi);
     close("all"); return net
 
-# Batch to Save Images with Reticulate Net:
-def Batch_SaveIm(org, tp, num=None, ms=None):
+# Save Mesh Images to Source Dir in Batch:
+def BatchSave(Dir, tp, num=None, ms=None):
     out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
-    if org[-1] != "/": org += "/"; # original image path
-    dst = org.split("/"); dst[-2] += "2"; dst = "/".join(dst)
-    if not os.path.exists(dst): os.mkdir(dst); # dst dir
-    for i in os.listdir(org)[:1]: # loop subdirs of org dir
-        if not os.path.exists(dst+i): os.mkdir(dst+i); # dst subdir
-        os.chdir(dst+i); outlist = os.listdir(dst+i); # pwd = dst+i
-        for im in os.listdir(org+i): # loop images in org subdir
-            if num==None or type(num)!=int: tps = tp[0] # loop all types
-            else: tps = np.random.randint(tp[0].start, tp[0].stop, num);
-            tps = [k for k in set(tps) if out(im,k) not in outlist]
-            for k in tps: # loop for types
-                k = (k, tp[1], (1+(k==4))*tp[2]);
-                SaveIm(org+i+"/"+im, out(im,k[0]), tp=k, ms=ms);
+    for path,sub,file in os.walk(Dir): # traverse Dir
+        os.chdir(path) # change cwd to path
+        for im in file: # loop in files
+            if os.path.exists(im[:-6]+".jpg"): continue # skip mesh im
+            if num==None or type(num)!=int: ks = tp[0] # loop all types
+            else: ks = np.random.randint(tp[0].start, tp[0].stop, num);
+            for k in [k for k in set(ks) if not os.path.exists(out(im,k))]:
+                SaveIm(im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), ms=ms);
+
+# Save Mesh Images to Other Dir in Batch:
+def Batch_Save(Dir, tp, num=None, ms=None):
+    out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
+    Dir += "/"*(Dir[-1]!="/"); Dst = Dir[:-1]+"2/"
+    if not os.path.exists(Dst): os.mkdir(Dst); # Dst dir
+    for i in os.listdir(Dir)[:1]: # loop subdir of Dir
+        if not os.path.exists(Dst+i): os.mkdir(Dst+i); # Dst subdir
+        os.chdir(Dst+i); outlist = os.listdir(Dst+i); # pwd = Dst+i
+        for im in os.listdir(Dir+i): # loop images in Dir subdir
+            if num==None or type(num)!=int: ks = tp[0] # loop all types
+            else: ks = np.random.randint(tp[0].start, tp[0].stop, num);
+            for k in [k for k in set(ks) if out(im,k) not in outlist]:
+                SaveIm(Dir+i+"/"+im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), ms=ms);
 
 #####################################################################
-org = "E:/FacePic/WebFace";
+org = "E:/FacePic/WebFace2";
 tp = [range(1,5), 0, 0.4];
-Batch_SaveIm(org, tp, num=1, ms=None);
+BatchSave(org, tp, num=1, ms=None);
