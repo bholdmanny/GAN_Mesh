@@ -25,4 +25,5 @@ ifconfig
 	10.250.140.126
 jupyter notebook --ip=10.250.140.126
 
-!conda install opencv # use jupyter to install opencv
+!conda install opencv # install opencv using jupyter
+pip install opencv-python # install opencv using pip

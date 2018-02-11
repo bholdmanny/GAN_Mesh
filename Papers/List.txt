@@ -1,4 +1,3 @@
-completion_cvpr2006
 1511.06434v2 
 1604.07379v2/cvpr16
 1607.07539v3 
@@ -8,5 +7,6 @@ completion_cvpr2006
 1701.00160v4 
 1703.06870v1 
 1706.04717v1 
+1712.04646v1 
 cs229-cvxopt
 cs229-cvxopt2
