@@ -105,7 +105,21 @@ def BatchSave(Dir, tp, num=None, ms=None):
             for k in [k for k in set(ks) if not os.path.exists(out(im,k))]:
                 SaveIm(im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), ms=ms);
 
+# Save Mesh Images to Other Dir in Batch:
+def BatchSave2(Dir, tp, num=None, ms=None):
+    out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
+    Dir += "/"*(Dir[-1]!="/"); Dst = Dir[:-1]+"2/"
+    if not os.path.exists(Dst): os.mkdir(Dst); # Dst dir
+    for i in os.listdir(Dir)[:1]: # loop subdir of Dir
+        if not os.path.exists(Dst+i): os.mkdir(Dst+i); # Dst subdir
+        os.chdir(Dst+i); outlist = os.listdir(Dst+i); # pwd = Dst+i
+        for im in os.listdir(Dir+i): # loop images in Dir subdir
+            if num==None or type(num)!=int: ks = tp[0] # loop all types
+            else: ks = np.random.randint(tp[0].start, tp[0].stop, num);
+            for k in [k for k in set(ks) if out(im,k) not in outlist]:
+                SaveIm(Dir+i+"/"+im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), ms=ms);
+
 #####################################################################
-org = "/home/hua.fu/CASIA-WebFace2/";
-tp = [range(1,5), 0, 0.4];
-BatchSave(org, tp, ms=None);
+org = "/home/hua.fu/CASIA-WebFace/";
+tp = [range(1,5), 1, 0.4];
+BatchSave(org, tp, num=1, ms=None);

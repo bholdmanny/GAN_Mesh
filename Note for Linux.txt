@@ -74,3 +74,11 @@ bash Anaconda3-5.0.1-Linux-x86_64.sh
 pip install graphviz mxnet-cu80/mxnet-cu90mkl opencv-python
 
 python 11.py & # & for background execution
+
+
+for i in $(ls $dst); do
+    if [ $i -gt 10 ]&&[ $i -lt 100 ]; then echo "$i">>list; fi
+done
+for i in `cat list`; do cp -r CASIA-WebFace/$i AI_Train_1; done
+for i in $(cat list); do cp -r CASIA-WebFace/$i AI_Train_1; done
+var=`cat list`; var=$(cat list); for i in $var; do echo "$i"; done
