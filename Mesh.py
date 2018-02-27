@@ -149,7 +149,7 @@ def BatchSave(Dir, tp, num=None, ms=None):
                 SaveIm(im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), ms=ms);
 
 # Save Mesh Images to Other Dir in Batch:
-def Batch_Save(Dir, tp, num=None, ms=None):
+def BatchSave2(Dir, tp, num=None, ms=None):
     out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
     Dir += "/"*(Dir[-1]!="/"); Dst = Dir[:-1]+"2/"
     if not os.path.exists(Dst): os.mkdir(Dst); # Dst dir
@@ -163,6 +163,6 @@ def Batch_Save(Dir, tp, num=None, ms=None):
                 SaveIm(Dir+i+"/"+im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), ms=ms);
 
 #####################################################################
-org = "E:/FacePic/WebFace2";
-tp = [range(1,5), 0, 0.4];
+org = "E:/FacePic/WebFace3";
+tp = [range(1,5), 1, 0.4];
 BatchSave(org, tp, num=1, ms=None);
