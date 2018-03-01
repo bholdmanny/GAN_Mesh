@@ -19,7 +19,7 @@ SelDir $src AI_Train_2 268 473
 #################################################################
 ReName()
 {
-	src=$1;
+	read src;
 	for i in $(ls $src);
 	do
 		cd $src/$i
@@ -29,6 +29,6 @@ ReName()
 	cd
 }
 
-src=/home/hua.fu/AI_Train_1
-ReName $src
+ReName # input: /home/hua.fu/AI_Train_1
+
 zip -rq AI_Train_1.zip $src &
