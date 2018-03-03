@@ -120,6 +120,6 @@ def BatchSave2(Dir, tp, num=None, ms=None):
                 SaveIm(Dir+i+"/"+im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), ms=ms);
 
 #####################################################################
-org = "/home/hua.fu/CASIA-WebFace/";
+src = "/home/hua.fu/CASIA-WebFace/";
 tp = [range(1,5), 1, 0.4];
-BatchSave(org, tp, num=1, ms=None);
+BatchSave(src, tp, num=1, ms=None);
