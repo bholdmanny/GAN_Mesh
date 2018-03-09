@@ -60,6 +60,7 @@ sudo userdel -rf
 usermod -L/-U
 chmod 755 tt.run/chmod u+x tt.run
 chown
+sudo cleartrash
 
 sudo -i
 sz/rz -be
@@ -73,7 +74,7 @@ md5sum/sha256sum Anaconda3-5.0.1-Linux-x86_64.sh
 bash Anaconda3-5.0.1-Linux-x86_64.sh
 pip install graphviz mxnet-cu80/mxnet-cu90mkl opencv-python
 
-python 11.py & # & for background execution
+python Mesh.py & # & for background execution
 
 
 for i in $(ls $dst); do
