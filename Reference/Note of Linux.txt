@@ -74,6 +74,9 @@ md5sum/sha256sum Anaconda3-5.0.1-Linux-x86_64.sh
 bash Anaconda3-5.0.1-Linux-x86_64.sh
 pip install graphviz mxnet-cu80/mxnet-cu90mkl opencv-python
 
+!conda install opencv # install opencv using jupyter
+pip install opencv-python # install opencv using pip
+
 python Mesh.py & # & for background execution
 
 
