@@ -1,13 +1,15 @@
-# -*-coding:utf-8 -*-
+# coding:utf-8
 #!/usr/bin/python3
+
 import os, cv2
 import tensorflow as tf
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+#os.environ["CUDA_VISIBLE_DEVICES"] = '1'
 import numpy as np
 import scipy.spatial
 import facenet
 
+##################################################################
 class App:
 	def __init__(self, modeldir, image_size =200):
 		self.image_size = image_size
@@ -30,27 +32,31 @@ class App:
 		emb_array1[0, :] = self.sess.run(self.embeddings, feed_dict={self.images_placeholder: scaled_reshape[0], self.phase_train_placeholder: False })[0]
 		return emb_array1[0, :]
 
-	def Compare(self, feature1, feature2):
+	def Compare(self, pic1, pic2):
+		feature1, feature2 = self.Feature(pic1), self.Feature(pic2)
 		cos_distance = 1 - scipy.spatial.distance.cosine(feature1,feature2)
-		cos_distance = float("%.3f" %abs(cos_distance))
+		cos_distance = float("%.3f" % abs(cos_distance))
 		return cos_distance
 
-	def Simi(self, pic1, pic2):
-		feature1, feature2 = self.Feature(pic1), self.Feature(pic2)
-		return self.Compare(feature1, feature2)
-
+##################################################################
 def main(*args, **kwargs):
 	api = App("./models")
-	img = os.listdir(args[0]); img.sort()
-	N = len(img); ss = np.zeros((N,N))
-	os.chdir(args[0])
+	img = os.listdir(args[0])[:10]; img.sort()
+	N = len(img); os.chdir(args[0])
+	ss = np.zeros((N,N), dtype=np.float16)
 	for i in range(N):
 		for j in range(N):
-			ss[i][j] = api.Simi(img[i],img[j])
-	print(img); print(ss)
+			if j<i: ss[i][j] = ss[j][i]
+			else:   ss[i][j] = api.Compare(img[i],img[j])
+	img = "".join([i[:-4]+(10-len(i))*" " for i in img])
+	np.savetxt("../"+args[1], ss, fmt="%.3f", header=img)
+	# print(img); # print(ss)
 	return ss,img
 
 if __name__ == '__main__':
 	from sys import argv
-	main(argv[1])
+	main(argv[1], argv[2])
+
+##################################################################
+# python3 Compare.py pic out.txt &
  
