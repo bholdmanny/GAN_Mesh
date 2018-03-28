@@ -4,7 +4,7 @@
 import os, cv2
 import tensorflow as tf
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
-#os.environ["CUDA_VISIBLE_DEVICES"] = '1'
+os.environ["CUDA_VISIBLE_DEVICES"] = '1'
 import numpy as np
 import scipy.spatial
 import facenet
@@ -25,11 +25,11 @@ class App:
 	def Feature(self, imagedir):
 		scaled_reshape = []
 		image = cv2.imread(imagedir)
-		image = cv2.resize(image, (self.image_size, self.image_size), interpolation=cv2.INTER_CUBIC)
+		image = cv2.resize(image, (self.image_size, self.image_size), interpolation=cv2.INTER_AREA)
 		image = np.multiply(np.subtract(image, np.mean(image)), 1/(np.maximum(np.std(image), 1.0/np.sqrt(image.size))))
 		scaled_reshape.append(image.reshape(-1, self.image_size, self.image_size, 3))
 		emb_array1 = np.zeros((1, self.embedding_size))
-		emb_array1[0, :] = self.sess.run(self.embeddings, feed_dict={self.images_placeholder: scaled_reshape[0], self.phase_train_placeholder: False })[0]
+		emb_array1[0, :] = self.sess.run(self.embeddings, feed_dict={self.images_placeholder: scaled_reshape[0], self.phase_train_placeholder: False})[0]
 		return emb_array1[0, :]
 
 	def Compare(self, pic1, pic2):
@@ -39,7 +39,8 @@ class App:
 		return cos_distance
 
 ##################################################################
-def main(*args, **kwargs):
+def SMatrix(*args, **kwargs):
+# args[0] = Image_Dir, args[1] = Similarity_Matrix_File
 	api = App("./models")
 	img = os.listdir(args[0])[:10]; img.sort()
 	N = len(img); os.chdir(args[0])
@@ -55,8 +56,8 @@ def main(*args, **kwargs):
 
 if __name__ == '__main__':
 	from sys import argv
-	main(argv[1], argv[2])
+	SMatrix(argv[1], argv[2])
 
 ##################################################################
-# python3 Compare.py pic out.txt &
+# python3 Compare.py pic/ out.txt &
  
