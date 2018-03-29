@@ -19,7 +19,7 @@ def Curve(tp, p, t): # normalized curve
 def LwAl(tp, n=1, dx=180): # random [linewidth, alpha] pair
     wa = np.random.rand(2*n); f = 1+tp[1]*(dx/180-1); # scale ratio
     wa[::2] = [round(f*(i+2),1) for i in wa[::2]] # linewidth
-    wa[1::2] = [round(0.4*i+0.4,2) for i in wa[1::2]] # alpha
+    wa[1::2] = [round(0.35*i+0.4,2) for i in wa[1::2]] # alpha
     if tp[0]==4: wa[::2] = round(1.2*f,1); # only for tp=4
     return wa # type: np.array
 
@@ -102,12 +102,13 @@ def Add2Im(im, tp, ro=None, wa=None, gap=1.6, fun=DrawCell): # add to image
     imshow(im, extent=(-x/2,x/2,-y/2,y/2)); axis("off"); xticks([]); yticks([]);
     return net
 
-# Save Image with Reticulate Net:
-def Save2Im(im, out, tp, ro=None, wa=None, gap=1.6, ms=None):
+# Save Single Mesh Image with Mask(use black.png):
+def SaveIm0(im, out, tp, ro=None, wa=None, gap=1.6, ms=None):
     if type(im)==str: im = imread(im) # load image
     dpi = 72; n = im.shape; y,x = n[0],n[1]; # width & height
     figure(figsize=(x/dpi, y/dpi), dpi=dpi); # set figsize
     net = Add2Im(im, tp, ro, wa, gap); savefig(out, dpi=dpi);
+    cv2.imwrite(out, cv2.imread(out), [cv2.IMWRITE_JPEG_QUALITY,15])
     if ms != None: # output mask image
         if type(ms) != str: ms = "./Test/blank.png";
         imshow(imread(ms), extent=(-x/2,x/2,-y/2,y/2));
@@ -116,7 +117,7 @@ def Save2Im(im, out, tp, ro=None, wa=None, gap=1.6, ms=None):
         cv2.imwrite(out, im, [int(cv2.IMWRITE_PXM_BINARY),1]);
     close("all"); return net
 
-# Save Image with Reticulate Net:
+# Save Single Mesh Image with Mask:
 def SaveIm(im, out, tp, ro=None, wa=None, gap=1.6, ms=None):
     if type(im)==str: im = imread(im) # load image
     n = im.shape; y,x = n[0],n[1]; n = y//20; # width & height
@@ -134,6 +135,7 @@ def SaveIm(im, out, tp, ro=None, wa=None, gap=1.6, ms=None):
         gap,tp = cv2.threshold(tp, 250, 255, cv2.THRESH_BINARY_INV);
         cv2.imwrite(ms, tp, [int(cv2.IMWRITE_PXM_BINARY),1]);
     imshow(im, extent=(-x/2,x/2,-y/2,y/2)); savefig(out, dpi=dpi);
+    cv2.imwrite(out, cv2.imread(out), [cv2.IMWRITE_JPEG_QUALITY,15])
     close("all"); return net
 
 # Save Mesh Images to Source Dir in Batch:
@@ -151,9 +153,10 @@ def BatchSave(Dir, tp, num=None, ms=None):
 # Save Mesh Images to Other Dir in Batch:
 def BatchSave2(Dir, tp, num=None, ms=None):
     out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
-    Dir += "/"*(Dir[-1]!="/"); Dst = Dir[:-1]+"2/"
+    Dir += "/"*(Dir[-1]!="/");
+    Dst = Dir[:-1]+"_"+"_".join([str(i) for i in tp[1:]])+"/";
     if not os.path.exists(Dst): os.mkdir(Dst); # Dst dir
-    for i in os.listdir(Dir)[:1]: # loop subdir of Dir
+    for i in os.listdir(Dir)[:]: # loop subdir of Dir
         if not os.path.exists(Dst+i): os.mkdir(Dst+i); # Dst subdir
         os.chdir(Dst+i); outlist = os.listdir(Dst+i); # pwd = Dst+i
         for im in os.listdir(Dir+i): # loop images in Dir subdir
@@ -164,5 +167,5 @@ def BatchSave2(Dir, tp, num=None, ms=None):
 
 #####################################################################
 src = "E:/FacePic/WebFace3";
-tp = [range(1,5), 1, 0.4];
+tp = [range(1,5), 1, 0.3];
 BatchSave(src, tp, num=1, ms=None);

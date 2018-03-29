@@ -77,7 +77,10 @@ pip install graphviz mxnet-cu80/mxnet-cu90mkl opencv-python
 !conda install opencv # install opencv using jupyter
 pip install opencv-python # install opencv using pip
 
-python Mesh.py & # & for background execution
+Ubuntu: apt-get install libopencv-dev python-opencv ffmpeg
+Fedora: yum install libopencv-dev python-opencv ffmpeg
+
+python3 Mesh.py & # & for background execution
 
 
 for i in $(ls $dst); do
