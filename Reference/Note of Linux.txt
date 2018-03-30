@@ -70,6 +70,7 @@ locate/find/whereis
 pip list
 conda list
 wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
+wget https://pjreddie.com/media/files/yolov3.weights
 md5sum/sha256sum Anaconda3-5.0.1-Linux-x86_64.sh
 bash Anaconda3-5.0.1-Linux-x86_64.sh
 pip install graphviz mxnet-cu80/mxnet-cu90mkl opencv-python

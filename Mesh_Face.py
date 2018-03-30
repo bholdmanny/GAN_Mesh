@@ -74,7 +74,7 @@ def DrawCell(tp, dx, yi=0, ra=0, wa=[], A=42, f=12): # draw sps cell
     return [t1,y1, t2,y2]
 
 # Save Single Mesh Image with Mask:
-def SaveIm(im, out, tp, ro=None, wa=None, gap=1.6, ms=None):
+def SaveIm(im, out, tp, ro=None, wa=None, gap=1.6, qt=15, ms=None):
     if type(im)==str: im = imread(im) # load image
     n = im.shape; y,x = n[0],n[1]; n = y//20; # width & height
     if ro==None: ro = 2*np.random.rand()-1; # randomly rotate
@@ -91,11 +91,11 @@ def SaveIm(im, out, tp, ro=None, wa=None, gap=1.6, ms=None):
         gap,tp = cv2.threshold(tp, 250, 255, cv2.THRESH_BINARY_INV);
         cv2.imwrite(ms, tp, [int(cv2.IMWRITE_PXM_BINARY),1]);
     imshow(im, extent=(-x/2,x/2,-y/2,y/2)); savefig(out, dpi=dpi);
-    cv2.imwrite(out, cv2.imread(out), [cv2.IMWRITE_JPEG_QUALITY,15])
+    cv2.imwrite(out, cv2.imread(out), [cv2.IMWRITE_JPEG_QUALITY,qt])
     close("all"); return net
 
 # Save Mesh Images to Source Dir in Batch:
-def BatchSave(Dir, tp, num=None, ms=None):
+def BatchSave(Dir, tp, qt=15, num=None, ms=None):
     out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
     for path,sub,file in os.walk(Dir): # traverse Dir
         os.chdir(path) # change cwd to path
@@ -104,24 +104,27 @@ def BatchSave(Dir, tp, num=None, ms=None):
             if num==None or type(num)!=int: ks = tp[0] # loop all types
             else: ks = np.random.randint(tp[0].start, tp[0].stop, num);
             for k in [k for k in set(ks) if not os.path.exists(out(im,k))]:
-                SaveIm(im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), ms=ms);
+                SaveIm(im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
+    os.chdir(Dir+"/..");
 
 # Save Mesh Images to Other Dir in Batch:
-def BatchSave2(Dir, tp, num=None, ms=None):
+def BatchSave2(Dir, tp, qt=15, num=None, ms=None):
     out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
     Dir += "/"*(Dir[-1]!="/");
     Dst = Dir[:-1]+"_"+"_".join([str(i) for i in tp[1:]])+"/";
     if not os.path.exists(Dst): os.mkdir(Dst); # Dst dir
-    for i in os.listdir(Dir)[:]: # loop subdir of Dir
+    for i in os.listdir(Dir)[:1]: # loop subdir of Dir
         if not os.path.exists(Dst+i): os.mkdir(Dst+i); # Dst subdir
         os.chdir(Dst+i); outlist = os.listdir(Dst+i); # pwd = Dst+i
         for im in os.listdir(Dir+i): # loop images in Dir subdir
             if num==None or type(num)!=int: ks = tp[0] # loop all types
             else: ks = np.random.randint(tp[0].start, tp[0].stop, num);
             for k in [k for k in set(ks) if out(im,k) not in outlist]:
-                SaveIm(Dir+i+"/"+im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), ms=ms);
+                SaveIm(Dir+i+"/"+im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
+    os.chdir(Dir+"/..");
 
 #####################################################################
 src = "/home/hua.fu/CASIA-WebFace/";
+src = "E:/FacePic/WebFace";
 tp = [range(1,5), 1, 0.3];
 BatchSave2(src, tp, num=None, ms=None);
