@@ -90,3 +90,10 @@ done
 for i in `cat list`; do cp -r CASIA-WebFace/$i AI_Train_1; done
 for i in $(cat list); do cp -r CASIA-WebFace/$i AI_Train_1; done
 var=`cat list`; var=$(cat list); for i in $var; do echo "$i"; done
+
+ffmpeg
+xargs
+shuf
+paste
+mogrify
+find *.txt = find . -name "*.txt"
