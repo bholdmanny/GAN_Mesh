@@ -60,3 +60,16 @@ beyondcompare
 查看配置信息   git config -l
 覆盖提交   git push origin <分支名> --force
 git@gitlab.xxx.com:ia_cv/android-app-face-acs.git
+
+-------------------------------------------------------------------
+…or create a new repository on the command line
+echo "# DeMeshNet" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:CosmosHua/DeMeshNet.git
+git push -u origin master
+
+…or push an existing repository from the command line
+git remote add origin git@github.com:CosmosHua/DeMeshNet.git
+git push -u origin master
