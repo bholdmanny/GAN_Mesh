@@ -20,7 +20,7 @@ def LwAl(tp, n=1, dx=180): # random [linewidth, alpha] pair
     wa = np.random.rand(2*n); f = 1+tp[1]*(dx/180-1); # scale ratio
     wa[::2] = [round(f*(i+2),1) for i in wa[::2]] # linewidth
     wa[1::2] = [round(0.35*i+0.4,2) for i in wa[1::2]] # alpha
-    if tp[0]==4: wa[::2] = round(1.2*f,1); # only for tp=4
+    if tp[0]==4: wa[::2] = round(1.0*f,1); # only for tp=4
     return wa # type: np.array
 
 # Rotate or Affine the Curve:
@@ -74,7 +74,7 @@ def DrawCell(tp, dx, yi=0, ra=0, wa=[], A=42, f=12): # draw sps cell
     return [t1,y1, t2,y2]
 
 # Save Single Mesh Image with Mask:
-def SaveIm(im, out, tp, ro=None, wa=None, gap=1.6, qt=15, ms=None):
+def SaveIm(im, out, tp, ro=None, wa=None, gap=1.6, qt=20, ms=None):
     if type(im)==str: im = imread(im) # load image
     n = im.shape; y,x = n[0],n[1]; n = y//20; # width & height
     if ro==None: ro = 2*np.random.rand()-1; # randomly rotate
@@ -89,13 +89,13 @@ def SaveIm(im, out, tp, ro=None, wa=None, gap=1.6, qt=15, ms=None):
         xlim(-x/2,x/2); ylim(-y/2,y/2); ms = out[:-4]+"_m.png";
         savefig(ms, facecolor="w", dpi=dpi); tp = cv2.imread(ms, 0);
         gap,tp = cv2.threshold(tp, 250, 255, cv2.THRESH_BINARY_INV);
-        cv2.imwrite(ms, tp, [int(cv2.IMWRITE_PXM_BINARY),1]);
+        cv2.imwrite(ms, tp, [int(cv2.IMWRITE_PXM_BINARY), 1]);
     imshow(im, extent=(-x/2,x/2,-y/2,y/2)); savefig(out, dpi=dpi);
-    cv2.imwrite(out, cv2.imread(out), [cv2.IMWRITE_JPEG_QUALITY,qt])
+    cv2.imwrite(out, cv2.imread(out), [cv2.IMWRITE_JPEG_QUALITY, qt])
     close("all"); return net
 
 # Save Mesh Images to Source Dir in Batch:
-def BatchSave(Dir, tp, qt=15, num=None, ms=None):
+def BatchSave(Dir, tp, qt=20, num=None, ms=None):
     out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
     for path,sub,file in os.walk(Dir): # traverse Dir
         os.chdir(path) # change cwd to path
@@ -105,10 +105,15 @@ def BatchSave(Dir, tp, qt=15, num=None, ms=None):
             else: ks = np.random.randint(tp[0].start, tp[0].stop, num);
             for k in [k for k in set(ks) if not os.path.exists(out(im,k))]:
                 SaveIm(im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
+            # Resize/Shrink the High-Resolution image and save later:
+            #res = cv2.resize(imread(im), (178,220), interpolation=cv2.INTER_AREA)
+            #for k in [k for k in set(ks) if not os.path.exists(out(im,k))]:
+            #    SaveIm(res, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
+            #cv2.imwrite(out(im,""), res[:,:,::-1], [cv2.IMWRITE_JPEG_QUALITY, 95]) # default=95
     os.chdir(Dir+"/..");
 
 # Save Mesh Images to Other Dir in Batch:
-def BatchSave2(Dir, tp, qt=15, num=None, ms=None):
+def BatchSave2(Dir, tp, qt=20, num=None, ms=None):
     out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
     Dir += "/"*(Dir[-1]!="/");
     Dst = Dir[:-1]+"_"+"_".join([str(i) for i in tp[1:]])+"/";
@@ -121,6 +126,11 @@ def BatchSave2(Dir, tp, qt=15, num=None, ms=None):
             else: ks = np.random.randint(tp[0].start, tp[0].stop, num);
             for k in [k for k in set(ks) if out(im,k) not in outlist]:
                 SaveIm(Dir+i+"/"+im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
+            # Resize/Shrink the High-Resolution image and save later:
+            #res = cv2.resize(imread(Dir+i+"/"+im), (178,220), interpolation=cv2.INTER_AREA)
+            #for k in [k for k in set(ks) if out(im,k) not in outlist]:
+            #    SaveIm(res, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
+            #cv2.imwrite(im, res[:,:,::-1], [cv2.IMWRITE_JPEG_QUALITY, 95]) # default=95
     os.chdir(Dir+"/..");
 
 #####################################################################
