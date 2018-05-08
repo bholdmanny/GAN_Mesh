@@ -18,9 +18,9 @@ def Curve(tp, p, t): # normalized curve
 # Get Random [linewidth, alpha] Pairs:
 def LwAl(tp, n=1, dx=180): # random [linewidth, alpha] pair
     wa = np.random.rand(2*n); f = 1+tp[1]*(dx/180-1); # scale ratio
-    wa[::2] = [round(f*(i+2),1) for i in wa[::2]] # linewidth
-    wa[1::2] = [round(0.35*i+0.4,2) for i in wa[1::2]] # alpha
-    if tp[0]==4: wa[::2] = round(1.0*f,1); # only for tp=4
+    wa[::2] = [round(f*(1.1*i+2),2) for i in wa[::2]] # linewidth
+    wa[1::2] = [round(0.4*i+0.2,2) for i in wa[1::2]] # alpha
+    if tp[0]==4: wa[::2] = round(f,2); # linewidth for tp=4
     return wa # type: np.array
 
 # Rotate or Affine the Curve:
@@ -75,8 +75,8 @@ def DrawCel(tp, dx, yi=0, ra=0, wa=[], A=42, f=12): # draw sps cell
     y1 = A * (Curve(tp[0],p1,t) + (yi+dy) + no1); # vertically scale + trans
     y2 = A * (Curve(tp[0],p2,t) + (yi-dy) + no2); # vertically scale + trans
     t -= xi+dx; t1,y1 = RoAf(t,y1,ra,f); t2,y2 = RoAf(t,y2,ra,f) # rotate/affine
-    plot(t1, y1, color="b", lw=wa[0], alpha=wa[-1])
-    plot(t2, y2, color="b", lw=wa[2], alpha=wa[-1])
+    plot(t1, y1, color="b", lw=wa[0], alpha=wa[-1]) # same alpha
+    plot(t2, y2, color="b", lw=wa[2], alpha=wa[-1]) # same alpha
     return [t1,y1, t2,y2]
 
 # Draw Reticulate Pattern Cell(sps):
@@ -85,6 +85,7 @@ def DrawCell(tp, dx, yi=0, ra=0, wa=[], A=42, f=12): # draw sps cell
     dy = round(0.2+(np.random.rand()-0.5)/10, 3);
     A,p1,f = Paras(tp,dx,A,f); # get sps Cell Parameters
     p2 = p1.copy(); p2[::-3] = [-i for i in p2[::-3]]
+    # DrawCu set alpha=wa[-1], thus Curve Cells have same alpha:
     t1,y1,w1,p1 = DrawCu(tp, p1, xi, dx, yi+dy, A, ra, f, wa=wa[:])
     t2,y2,w2,p2 = DrawCu(tp, p2, xi, dx, yi-dy, A, ra, f, wa=wa[2:])
     return [t1,y1, t2,y2]
@@ -103,11 +104,12 @@ def Add2Im(im, tp, ro=None, wa=None, gap=1.6, fun=DrawCell): # add to image
     return net
 
 # Save Single Mesh Image with Mask(use black.png):
-def SaveIm0(im, out, tp, ro=None, wa=None, gap=1.6, qt=20, ms=None):
+def SaveIm0(im, out, tp, qt=20, ro=None, wa=None, gap=1.6, ms=None):
     if type(im)==str: im = imread(im) # load image
     dpi = 72; n = im.shape; y,x = n[0],n[1]; # width & height
     figure(figsize=(x/dpi, y/dpi), dpi=dpi); # set figsize
     net = Add2Im(im, tp, ro, wa, gap); savefig(out, dpi=dpi);
+    if type(qt)!=int: qt = np.random.randint(qt[0],qt[1]) # quality
     cv2.imwrite(out, cv2.imread(out), [cv2.IMWRITE_JPEG_QUALITY, qt])
     if ms != None: # output mask image
         if type(ms) != str: ms = "./Test/blank.png";
@@ -118,7 +120,7 @@ def SaveIm0(im, out, tp, ro=None, wa=None, gap=1.6, qt=20, ms=None):
     close("all"); return net
 
 # Save Single Mesh Image with Mask:
-def SaveIm(im, out, tp, ro=None, wa=None, gap=1.6, qt=20, ms=None):
+def SaveIm(im, out, tp, qt=20, ro=None, wa=None, gap=1.6, ms=None):
     if type(im)==str: im = imread(im) # load image
     n = im.shape; y,x = n[0],n[1]; n = y//20; # width & height
     if ro==None: ro = 2*np.random.rand()-1; # randomly rotate
@@ -135,6 +137,7 @@ def SaveIm(im, out, tp, ro=None, wa=None, gap=1.6, qt=20, ms=None):
         gap,tp = cv2.threshold(tp, 250, 255, cv2.THRESH_BINARY_INV);
         cv2.imwrite(ms, tp, [int(cv2.IMWRITE_PXM_BINARY), 1]);
     imshow(im, extent=(-x/2,x/2,-y/2,y/2)); savefig(out, dpi=dpi);
+    if type(qt)!=int: qt = np.random.randint(qt[0],qt[1]) # quality
     cv2.imwrite(out, cv2.imread(out), [cv2.IMWRITE_JPEG_QUALITY, qt])
     close("all"); return net
 
@@ -150,6 +153,7 @@ def BatchSave(Dir, tp, qt=20, num=None, ms=None):
             for k in [k for k in set(ks) if not os.path.exists(out(im,k))]:
                 SaveIm(im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
             # Resize/Shrink the High-Resolution image and save later:
+            # OR: resize->save(to im_ with qt=95)->add mesh(to res/im_)
             #res = cv2.resize(imread(im), (178,220), interpolation=cv2.INTER_AREA)
             #for k in [k for k in set(ks) if not os.path.exists(out(im,k))]:
             #    SaveIm(res, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
@@ -159,7 +163,7 @@ def BatchSave(Dir, tp, qt=20, num=None, ms=None):
 # Save Mesh Images to Other Dir in Batch:
 def BatchSave2(Dir, tp, qt=20, num=None, ms=None):
     out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
-    Dir += "/"*(Dir[-1]!="/");
+    Dir += "/"*(Dir[-1]!="/"); # append "/" to Dir if none
     Dst = Dir[:-1]+"_"+"_".join([str(i) for i in tp[1:]])+"/";
     if not os.path.exists(Dst): os.mkdir(Dst); # Dst dir
     for i in os.listdir(Dir)[:]: # loop subdir of Dir
@@ -171,13 +175,15 @@ def BatchSave2(Dir, tp, qt=20, num=None, ms=None):
             for k in [k for k in set(ks) if out(im,k) not in outlist]:
                 SaveIm(Dir+i+"/"+im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
             # Resize/Shrink the High-Resolution image and save later:
+            # OR: resize->save(to im with qt=95)->add mesh(to res/im)
             #res = cv2.resize(imread(Dir+i+"/"+im), (178,220), interpolation=cv2.INTER_AREA)
             #for k in [k for k in set(ks) if out(im,k) not in outlist]:
             #    SaveIm(res, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
             #cv2.imwrite(im, res[:,:,::-1], [cv2.IMWRITE_JPEG_QUALITY, 95]) # default=95
-    os.chdir(Dir + "/..");
+    os.chdir(Dir+"/..");
 
 #####################################################################
-src = "E:/FacePic/WebFace3";
+src = "/home/hua.fu/CASIA-WebFace/";
+src = "E:/FacePic/WebFace";
 tp = [range(1,5), 1, 0.3];
-BatchSave(src, tp, num=None, ms=None);
+BatchSave2(src, tp, qt=95, num=1, ms=None);
