@@ -141,9 +141,21 @@ def SaveIm(im, out, tp, qt=20, ro=None, wa=None, gap=1.6, ms=None):
     cv2.imwrite(out, cv2.imread(out), [cv2.IMWRITE_JPEG_QUALITY, qt])
     close("all"); return net
 
+#####################################################################
+# Crop Randomly OR Resize Image:
+def Crop(im, size, op="cut"): # size=(height,width), op=crop/resize
+    if type(im)==str: im = cv2.imread(im) # OR: pylab.imread(im)
+    if type(size)!=np.ndarray: size = np.array(size) # (height,width)
+    imsz = np.array([im.shape[0],im.shape[1]]) # (height,width,depth)
+    if ("c" in op) and (imsz>=size).all(): # True only if all elements are Ture
+        xy = np.array([np.random.randint(i) for i in imsz-size+1]); br = xy+size
+        return im[xy[0]:br[0], xy[1]:br[1]] # randomly crop/cut
+    else: # Note: resize use (width,height)
+        return cv2.resize(im, (size[1],size[0]), interpolation=cv2.INTER_AREA)
+
 # Save Mesh Images to Source Dir in Batch:
 def BatchSave(Dir, tp, qt=20, num=None, ms=None):
-    out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
+    out = lambda name,k="": name[:-4]+"_"+str(k)+".jpg";
     for path,sub,file in os.walk(Dir): # traverse Dir
         os.chdir(path) # change cwd to path
         for im in file: # loop in files
@@ -152,17 +164,17 @@ def BatchSave(Dir, tp, qt=20, num=None, ms=None):
             else: ks = np.random.randint(tp[0].start, tp[0].stop, num);
             for k in [k for k in set(ks) if not os.path.exists(out(im,k))]:
                 SaveIm(im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
-            # Resize/Shrink the High-Resolution image and save later:
-            # OR: resize->save(to im_ with qt=95)->add mesh(to res/im_)
+            # Resize/Shrink the High-Resolution image->save->add mesh(to res/im):
             #res = cv2.resize(imread(im), (178,220), interpolation=cv2.INTER_AREA)
-            #for k in [k for k in set(ks) if not os.path.exists(out(im,k))]:
+            #res = Crop(imread(im), (220,178), "resize") # OR: cv2.imread/"cut"
+            #cv2.imwrite(out(im), res[:,:,::-1], [cv2.IMWRITE_JPEG_QUALITY, 95]) # default=95
+            #for k in [k for k in set(ks) if not os.path.exists(out(im,k))]: # mesh res/out(im)
             #    SaveIm(res, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
-            #cv2.imwrite(out(im,""), res[:,:,::-1], [cv2.IMWRITE_JPEG_QUALITY, 95]) # default=95
     os.chdir(Dir+"/..");
 
 # Save Mesh Images to Other Dir in Batch:
 def BatchSave2(Dir, tp, qt=20, num=None, ms=None):
-    out = lambda name,k: name[:-4]+"_"+str(k)+".jpg";
+    out = lambda name,k="": name[:-4]+"_"+str(k)+".jpg";
     Dir += "/"*(Dir[-1]!="/"); # append "/" to Dir if none
     Dst = Dir[:-1]+"_"+"_".join([str(i) for i in tp[1:]])+"/";
     if not os.path.exists(Dst): os.mkdir(Dst); # Dst dir
@@ -174,12 +186,12 @@ def BatchSave2(Dir, tp, qt=20, num=None, ms=None):
             else: ks = np.random.randint(tp[0].start, tp[0].stop, num);
             for k in [k for k in set(ks) if out(im,k) not in outlist]:
                 SaveIm(Dir+i+"/"+im, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
-            # Resize/Shrink the High-Resolution image and save later:
-            # OR: resize->save(to im with qt=95)->add mesh(to res/im)
+            # Resize/Shrink the High-Resolution image->save->add mesh(to res/im):
             #res = cv2.resize(imread(Dir+i+"/"+im), (178,220), interpolation=cv2.INTER_AREA)
-            #for k in [k for k in set(ks) if out(im,k) not in outlist]:
-            #    SaveIm(res, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
+            #res = Crop(imread(Dir+i+"/"+im), (220,178), "resize") # OR: cv2.imread/"cut"
             #cv2.imwrite(im, res[:,:,::-1], [cv2.IMWRITE_JPEG_QUALITY, 95]) # default=95
+            #for k in [k for k in set(ks) if out(im,k) not in outlist]: # mesh res/im
+            #    SaveIm(res, out(im,k), tp=(k,tp[1],(1+(k==4))*tp[2]), qt=qt, ms=ms);
     os.chdir(Dir+"/..");
 
 #####################################################################
