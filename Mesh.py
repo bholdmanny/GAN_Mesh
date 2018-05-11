@@ -1,3 +1,4 @@
+# coding:utf-8
 #!/usr/bin/python3
 import os, cv2, matplotlib
 matplotlib.use('Agg') # before import matplotlib.pyplot or pylab!
@@ -195,7 +196,8 @@ def BatchSave2(Dir, tp, qt=20, num=None, ms=None):
     os.chdir(Dir+"/..");
 
 #####################################################################
-src = "/home/hua.fu/CASIA-WebFace/";
-src = "E:/FacePic/WebFace";
-tp = [range(1,5), 1, 0.3];
-BatchSave2(src, tp, qt=95, num=1, ms=None);
+if __name__ == "__main__":
+    src = "/home/hua.fu/CASIA-WebFace/";
+    src = "E:/FacePic/WebFace";
+    tp = [range(1,5), 1, 0.3];
+    BatchSave2(src, tp, qt=95, num=1, ms=None);

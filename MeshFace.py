@@ -1,3 +1,4 @@
+# coding:utf-8
 #!/usr/bin/python3
 import os, cv2, matplotlib
 matplotlib.use('Agg') # before import matplotlib.pyplot or pylab!
