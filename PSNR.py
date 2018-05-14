@@ -14,7 +14,7 @@ def PSNR(I, K): # Require: I.shape == K.shape
     return 10 * math.log10(MAX/(MSE+ee)) # PSNR
 
 def Batch(*args, **kwargs):
-    args = args[0] # parse args(a tuple)
+    if type(args[0])!=str: args = args[0] # parse
     if len(args)<2: # I,K in the same DIR
         IK = args[0]; im = os.listdir(IK); im.sort()
         I = [os.path.join(IK, i) for i in im[::2]]
@@ -29,18 +29,18 @@ def Batch(*args, **kwargs):
         K = [os.path.join(Ks, i) for i in os.listdir(Ks)]
         R = [os.path.join(Rs, i) for i in os.listdir(Rs)]
         gain = [PSNR(i, r)/PSNR(i, k)-1 for i, k, r in zip(I, K, R)]
-        #for i in range(len(I)): print(gain[i], K[i], R[i])
-        return gain, I, K, R, sum(gain)/len(gain)
+        for i in range(len(I)): print(gain[i], K[i], R[i])
+        return sum(gain)/len(gain), gain, I, K, R
     res = [PSNR(i, k) for i, k in zip(I, K)]
-    #for i in range(len(I)): print(res[i], I[i], K[i])
+    for i in range(len(I)): print(res[i], I[i], K[i])
     return res, I, K
 
 ##################################################################
 if __name__ == "__main__":
     Batch(argv[1:]) # input_dir
-    #a = Batch("E:/Hua/PyCharm/Crop")
-    #b = Batch("E:/Hua/PyCharm/Crop1", "E:/Hua/PyCharm/Crop2")
-    #c = Batch("E:/Hua/PyCharm/Crop1", "E:/Hua/PyCharm/Crop2", "E:/Hua/PyCharm/Crop1")
+    #IK = "E:/Hua/PyCharm/Crop"; a = Batch(IK)
+    #Is, Ks = "E:/Hua/PyCharm/Crop1", "E:/Hua/PyCharm/Crop2"
+    #b = Batch(Is, Ks); #c = Batch(Is, Ks, Is)
 
 ##################################################################
 # python3 PSNR.py Tools/AI_CV_Test_1 > out.txt &
