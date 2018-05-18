@@ -158,6 +158,7 @@ def BatchSave(src, tp, qt=20, num=None, ms=None):
     if type(tp)==int: tp = [tp] # tp=range/list/tuple
     N = len(tp); SZ = (220,178) # default (height,width)
     if num==None or type(num)!=int: num = N # default=N
+    id = [i%N for i in range(num)] # default index of tp
     scr = os.path.abspath(src); ss = os.path.split(src)[-1]
     dst = ss + "_".join([str(i) for i in ["",fs,no]]) # target
     out = lambda im,k="": im.replace(ss,dst)[:-4]+"_"+str(k)+".jpg"
@@ -165,18 +166,17 @@ def BatchSave(src, tp, qt=20, num=None, ms=None):
         os.mkdir(path.replace(ss,dst)); os.chdir(path) # cd path
         for im in file: # loop images in path
             im = os.path.join(path, im) # uesd in out()
-            if num>N: tps = [i%N for i in range(num)] # repetitive
-            else: tps = np.random.choice(tp, num, False) # non-repetitive
-            for i in range(num): SaveIm(im, out(im,i), (tps[i],fs,no), qt, ms)
+            if num<N: id = np.random.choice(N, num, False) # non-repetitive
+            for i in range(num): SaveIm(im, out(im,i), (tp[id[i]],fs,no), qt, ms)
             # Crop/Resize Images->Save->Add Meshes to res/out(im):
-            # res = Crop(imread(im), SZ, "cure") # try: cv2.imread or "cut"/"re"
-            # cv2.imwrite(out(im), res[:,:,::-1], [cv2.IMWRITE_JPEG_QUALITY, 95])
-            # for i in range(num): SaveIm(res, out(im,i), (tps[i],fs,no), qt, ms)
+            #res = Crop(imread(im), SZ, "cut") # try: cv2.imread or "resize"
+            #cv2.imwrite(out(im), res[:,:,::-1], [cv2.IMWRITE_JPEG_QUALITY, 95])
+            #for i in range(num): SaveIm(res, out(im,i), (tp[id[i]],fs,no), qt, ms)
     os.chdir(os.path.join(src,"..")) # cd parent directory
 
 #####################################################################
 if __name__ == "__main__":
-    src = "/home/hua.fu/CASIA-WebFace/"
-    src = "E:/PyCharm/Pic"
+    src = "E:/Hua/PyCharm/Test"
+    #src = "/home/hua.fu/CASIA-WebFace/"
     tp = [range(4), 1, 0.3]
-    BatchSave(src, tp, qt=95, num=1, ms=None)
+    BatchSave(src, tp, qt=95, num=3, ms=None)
