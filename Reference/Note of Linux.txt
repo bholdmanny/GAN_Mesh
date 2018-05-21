@@ -97,3 +97,6 @@ shuf
 paste
 mogrify
 find *.txt = find . -name "*.txt"
+
+to Fix "/bin/mv: Argument list too long" issue:
+find mm/ -name "*.jpg" | xargs -i mv {} meshface/
